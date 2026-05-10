@@ -300,6 +300,30 @@
       background: #fff;
       transform: scale(1.35);
     }
+    .hero-slide-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 3;
+      background: rgba(255,255,255,0.22);
+      border: none;
+      backdrop-filter: blur(6px);
+      color: #fff;
+      font-size: 2rem;
+      line-height: 1;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s, transform 0.2s;
+      padding: 0;
+    }
+    .hero-slide-btn:hover { background: rgba(255,255,255,0.42); transform: translateY(-50%) scale(1.1); }
+    .hero-slide-prev { left: 0.6rem; }
+    .hero-slide-next { right: 0.6rem; }
 
     /* ─── MOBILE ADJUSTMENTS ─── */
     @media (max-width: 991.98px) {
@@ -1674,11 +1698,12 @@
   const slides = document.querySelectorAll('.hero-slideshow .slide');
   const dotsContainer = document.querySelector('.slideshow-dots');
   let currentSlide = 0;
+  let autoPlay;
   slides.forEach((_, i) => {
     const dot = document.createElement('span');
     dot.classList.add('slideshow-dot');
     if (i === 0) dot.classList.add('active');
-    dot.addEventListener('click', () => goToSlide(i));
+    dot.addEventListener('click', () => { goToSlide(i); resetAutoPlay(); });
     dotsContainer.appendChild(dot);
   });
   function goToSlide(n) {
@@ -1688,7 +1713,13 @@
     slides[currentSlide].classList.add('active');
     dotsContainer.children[currentSlide].classList.add('active');
   }
-  setInterval(() => goToSlide(currentSlide + 1), 3500);
+  function resetAutoPlay() {
+    clearInterval(autoPlay);
+    autoPlay = setInterval(() => goToSlide(currentSlide + 1), 3500);
+  }
+  autoPlay = setInterval(() => goToSlide(currentSlide + 1), 3500);
+  document.querySelector('.hero-slide-prev').addEventListener('click', () => { goToSlide(currentSlide - 1); resetAutoPlay(); });
+  document.querySelector('.hero-slide-next').addEventListener('click', () => { goToSlide(currentSlide + 1); resetAutoPlay(); });
 
   // ── THEME TOGGLE ──────────────────────────────────────────────────────────
   const toggleBtn = document.getElementById('themeToggle');
