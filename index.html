@@ -890,10 +890,14 @@
       transition: background-color 0.35s ease, color 0.25s ease, border-color 0.35s ease;
     }
 
-    /* ─── THEME TOGGLE BUTTON ─── */
+    /* ─── THEME TOGGLE BUTTON (fixed bottom-right) ─── */
     .theme-toggle {
-      width: 38px;
-      height: 38px;
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      z-index: 9999;
+      width: 46px;
+      height: 46px;
       border-radius: 50%;
       border: 1.5px solid rgba(0,0,0,0.12);
       background: var(--bg2);
@@ -902,11 +906,11 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1rem;
-      flex-shrink: 0;
+      font-size: 1.1rem;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.15);
       transition: transform 0.2s, box-shadow 0.2s, background-color 0.35s, border-color 0.35s;
     }
-    .theme-toggle:hover { transform: rotate(20deg) scale(1.1); box-shadow: 0 4px 14px rgba(0,0,0,0.15); }
+    .theme-toggle:hover { transform: rotate(20deg) scale(1.1); box-shadow: 0 6px 22px rgba(0,0,0,0.22); }
     [data-theme="dark"] .theme-toggle { border-color: rgba(255,255,255,0.14); }
 
     /* colour helpers */
@@ -943,15 +947,16 @@
         <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
         <li class="nav-item"><a class="nav-link" href="#committee">Committee</a></li>
         <li class="nav-item ms-lg-2"><a class="nav-link btn-nav" href="#join">Join Us</a></li>
-        <li class="nav-item ms-2">
-          <button class="theme-toggle" id="themeToggle" title="Toggle dark / light mode">
-            <i class="bi bi-moon-fill" id="themeIcon"></i>
-          </button>
-        </li>
+
       </ul>
     </div>
   </div>
 </nav>
+
+<!-- ── THEME TOGGLE (fixed bottom-right) ── -->
+<button class="theme-toggle" id="themeToggle" title="Toggle dark / light mode">
+  <i class="bi bi-moon-fill" id="themeIcon"></i>
+</button>
 
 <!-- ── HERO ── -->
 <section id="hero">
