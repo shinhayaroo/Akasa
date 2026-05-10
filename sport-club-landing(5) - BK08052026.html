@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>APEX Sport Club</title>
+  <link rel="icon" type="image/png" sizes="5x5" href="logo.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg:       #f7f5f0;
+      --bg2:      #eeecea;
+      --ink:      #111111;
+      --muted:    #777;
+      --red:      #ff3b30;
+      --orange:   #ff7c2a;
+      --yellow:   #ffc700;
+      --green:    #1db954;
+      --blue:     #1a6cff;
+      --purple:   #8b5cf6;
+      --pink:     #f72585;
+      --teal:     #00b4a0;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 400;
+      overflow-x: hidden;
+    }
+
+    /* ─── NAVBAR ─── */
+    .navbar {
+      background: rgba(247,245,240,0.9);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(0,0,0,0.07);
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+    .navbar-brand {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      letter-spacing: 3px;
+      color: var(--ink) !important;
+    }
+    .navbar-brand span { color: var(--blue); }
+    .nav-link {
+      color: var(--muted) !important;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      transition: color 0.2s;
+      padding: 0.4rem 0.9rem !important;
+    }
+    .nav-link:hover { color: var(--ink) !important; }
+    .btn-nav {
+      background: var(--blue);
+      color: #fff !important;
+      border-radius: 50px;
+      padding: 0.5rem 1.4rem !important;
+      font-size: 0.78rem !important;
+      font-weight: 600 !important;
+      letter-spacing: 1px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-nav:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(26,108,255,0.3); color: #fff !important; }
+    .navbar-toggler { border: 1.5px solid rgba(0,0,0,0.15); }
+
+    /* ─── HERO ─── */
+    #hero {
+      background: var(--bg);
+      padding: 7rem 0 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.22;
+      pointer-events: none;
+    }
+    .blob1 { width: 500px; height: 500px; background: var(--blue);  top: -120px; right: -60px; }
+    .blob2 { width: 350px; height: 350px; background: var(--yellow); bottom: -80px; left: -60px; }
+    .blob3 { width: 280px; height: 280px; background: var(--pink);  top: 40%; right: 20%; }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #fff;
+      border: 1.5px solid rgba(0,0,0,0.08);
+      border-radius: 50px;
+      padding: 0.4rem 1rem;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 1.8rem;
+      box-shadow: 0 2px 12px rgba(26,108,255,0.08);
+      animation: fadeUp 0.7s ease both;
+    }
+    .hero-badge .dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%,100% { box-shadow: 0 0 0 0 rgba(29,185,84,0.4); }
+      50%      { box-shadow: 0 0 0 6px rgba(29,185,84,0); }
+    }
+
+    .hero-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(4.5rem, 12vw, 6rem);
+      line-height: 0.92;
+      letter-spacing: -1px;
+      animation: fadeUp 0.7s ease 0.1s both;
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 420px;
+      line-height: 1.8;
+      margin-top: 1.5rem;
+      animation: fadeUp 0.7s ease 0.2s both;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 2.2rem;
+      animation: fadeUp 0.7s ease 0.3s both;
+    }
+    .btn-primary-custom {
+      background: var(--blue);
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      padding: 0.85rem 2.2rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: inline-block;
+    }
+    .btn-primary-custom:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(26,108,255,0.3); color: #fff; }
+    .btn-outline-custom {
+      background: transparent;
+      color: var(--ink);
+      border: 1.5px solid rgba(0,0,0,0.15);
+      border-radius: 50px;
+      padding: 0.85rem 2.2rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: border-color 0.2s, transform 0.2s;
+      display: inline-block;
+    }
+    .btn-outline-custom:hover { border-color: var(--ink); transform: translateY(-3px); color: var(--ink); }
+
+    .hero-stats {
+      display: flex;
+      margin-top: 4rem;
+      animation: fadeUp 0.7s ease 0.4s both;
+      border: 1.5px solid rgba(0,0,0,0.08);
+      border-radius: 16px;
+      overflow: hidden;
+      background: #fff;
+      max-width: 480px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+    .hero-stat {
+      flex: 1;
+      text-align: center;
+      padding: 1.2rem 0.5rem;
+      border-right: 1.5px solid rgba(0,0,0,0.08);
+    }
+    .hero-stat:last-child { border-right: none; }
+    .stat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.2rem;
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 0.2rem;
+    }
+
+    /* hero visual card */
+    .hero-card-big {
+      background: linear-gradient(135deg, var(--blue), #4f9cff);
+      border-radius: 24px;
+      height: 420px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+    .hero-card-big .icon-big {
+      font-size: 9rem;
+      color: rgba(255,255,255,0.18);
+      position: absolute;
+      width: 220px;   /* change to 30px if you want smaller */
+      height: auto;
+      opacity: 0.6;   /* 0 = fully transparent, 1 = fully visible */
+    }
+    .hero-card-big .label-over {
+      position: absolute;
+      bottom: 1.8rem; left: 1.8rem;
+      color: #fff;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      letter-spacing: 3px;
+    }
+    .floating-pill {
+      position: absolute;
+      background: #fff;
+      border-radius: 50px;
+      padding: 0.6rem 1.2rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      white-space: nowrap;
+      animation: float 3s ease-in-out infinite;
+    }
+    .pill1 { top: 1.5rem; right: -1.5rem; animation-delay: 0s; }
+    .pill2 { bottom: 5rem; right: -2rem;  animation-delay: 1s; }
+    .pill3 { top: 45%;   left: -2rem;    animation-delay: 0.5s; }
+    @keyframes float {
+      0%,100% { transform: translateY(0); }
+      50%      { transform: translateY(-8px); }
+    }
+    .pill-dot { width:10px; height:10px; border-radius:50%; }
+
+    /* ─── SECTION COMMON ─── */
+    section { padding: 7rem 0; }
+    .sec-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+    .sec-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      line-height: 1;
+      letter-spacing: 0.5px;
+    }
+    .sec-desc {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.8;
+      max-width: 480px;
+    }
+
+    /* ─── ABOUT ─── */
+    #about { background: #fff; }
+    .about-highlight {
+      border-left: 4px solid var(--blue);
+      padding: 1.2rem 1.5rem;
+      background: rgba(26,108,255,0.04);
+      border-radius: 0 12px 12px 0;
+      font-size: 1rem;
+      color: #444;
+      line-height: 1.8;
+      font-style: italic;
+    }
+    .fact-box {
+      border-radius: 16px;
+      padding: 1.5rem;
+      text-align: center;
+      color: #fff;
+    }
+    .fact-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.8rem;
+      line-height: 1;
+    }
+    .fact-lbl {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      opacity: 0.8;
+      margin-top: 0.3rem;
+    }
+
+    /* ─── ACTIVITIES ─── */
+    #activities { background: var(--bg2); }
+
+    /* ─── EVENTS (picture cards) ─── */
+    #events { background: #fff; }
+    .event-card {
+      background: var(--bg);
+      border-radius: 24px;
+      overflow: hidden;
+      height: 100%;
+      transition: transform 0.35s, box-shadow 0.35s;
+      border: 1.5px solid rgba(0,0,0,0.05);
+    }
+    .event-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.11);
+    }
+    .event-img-wrap {
+      position: relative;
+      overflow: hidden;
+      height: 230px;
+    }
+    .event-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .event-card:hover .event-img-wrap img { transform: scale(1.06); }
+    .event-cat-badge {
+      position: absolute;
+      top: 1rem; left: 1rem;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 0.3rem 0.8rem;
+      border-radius: 50px;
+      color: #fff;
+    }
+    .event-status {
+      position: absolute;
+      top: 1rem; right: 1rem;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 0.3rem 0.7rem;
+      border-radius: 50px;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(6px);
+    }
+    .event-body { padding: 1.6rem; }
+    .event-date-row {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+    }
+    .event-date-row .date-icon {
+      width: 26px; height: 26px;
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.75rem;
+      color: #fff;
+      flex-shrink: 0;
+    }
+    .event-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.45rem;
+      letter-spacing: 1px;
+      line-height: 1.1;
+      margin-bottom: 0.6rem;
+    }
+    .event-desc {
+      font-size: 0.84rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+    .event-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.6rem 1.4rem;
+      border-top: 1.5px solid rgba(0,0,0,0.06);
+      margin-top: 0.5rem;
+    }
+    .event-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--muted);
+    }
+    .event-meta i { font-size: 0.85rem; }
+    .event-btn {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+      color: #fff;
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: inline-block;
+    }
+    .event-btn:hover { transform: translateY(-2px); color: #fff; }
+    /* featured big card */
+    .event-card-featured { position: relative; }
+    .event-card-featured .event-img-wrap { height: 320px; }
+    .event-card-featured .event-title { font-size: 1.8rem; }
+    .activity-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 2rem 1.8rem;
+      height: 100%;
+      transition: transform 0.3s, box-shadow 0.3s;
+      border: 1.5px solid transparent;
+    }
+    .activity-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+    }
+    .activity-card .top-bar {
+      height: 4px;
+      border-radius: 4px;
+      margin-bottom: 1.5rem;
+    }
+    .activity-icon {
+      width: 52px; height: 52px;
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem;
+      color: #fff;
+      margin-bottom: 1.2rem;
+    }
+    .activity-card h5 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem;
+      letter-spacing: 1px;
+      margin-bottom: 0.5rem;
+    }
+    .activity-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.7; }
+    .activity-day {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-top: 1.2rem;
+      background: var(--bg);
+      padding: 0.35rem 0.85rem;
+      border-radius: 50px;
+    }
+
+    /* ─── COMMITTEE ─── */
+    #committee { background: #fff; }
+    .member-card {
+      background: var(--bg);
+      border-radius: 20px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .member-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.09);
+    }
+    .member-avatar {
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      margin: 0 auto 1rem;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem;
+      color: #fff;
+    }
+    .member-role-badge {
+      display: inline-block;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 0.25rem 0.7rem;
+      border-radius: 50px;
+      color: #fff;
+      margin-bottom: 0.6rem;
+    }
+    .member-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.25rem;
+      letter-spacing: 1px;
+    }
+    .member-desc {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 0.5rem;
+      line-height: 1.6;
+    }
+    .member-social { margin-top: 1rem; }
+    .member-social a {
+      width: 30px; height: 30px;
+      border-radius: 50%;
+      background: #fff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      margin: 0 0.2rem;
+      font-size: 0.85rem;
+      transition: background 0.2s, color 0.2s;
+      text-decoration: none;
+    }
+    .member-social a:hover { background: var(--blue); color: #fff; }
+
+    /* ─── JOIN ─── */
+    #join { background: var(--bg2); padding: 7rem 0; }
+    .join-box {
+      background: linear-gradient(135deg, var(--blue) 0%, #5b9dff 100%);
+      border-radius: 28px;
+      padding: 4rem;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+    .join-box::before {
+      content: '';
+      position: absolute;
+      width: 400px; height: 400px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.07);
+      top: -150px; right: -80px;
+    }
+    .join-box .sec-title { color: #fff; }
+    .join-box .sec-label { color: rgba(255,255,255,0.6); }
+    .join-box p { color: rgba(255,255,255,0.75); font-size: 0.95rem; line-height: 1.8; }
+    .btn-white {
+      background: #fff;
+      color: var(--blue);
+      border: none;
+      border-radius: 50px;
+      padding: 0.9rem 2.2rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: inline-block;
+    }
+    .btn-white:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(0,0,0,0.15); color: var(--blue); }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 0.8rem;
+    }
+    .contact-icon {
+      width: 36px; height: 36px;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.15);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--ink);
+      color: #fff;
+      padding: 3.5rem 0 2rem;
+    }
+    .footer-brand {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      letter-spacing: 3px;
+    }
+    .footer-brand span { color: var(--blue); }
+    .footer-tagline { font-size: 0.8rem; color: rgba(255,255,255,0.35); margin-top: 0.3rem; }
+    .footer-link {
+      color: rgba(255,255,255,0.45);
+      text-decoration: none;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 0.6rem;
+      transition: color 0.2s;
+    }
+    .footer-link:hover { color: #fff; }
+    .footer-col-title {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.25);
+      margin-bottom: 1.2rem;
+    }
+    .footer-social a {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.12);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.45);
+      margin-right: 0.5rem;
+      font-size: 0.9rem;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+      text-decoration: none;
+    }
+    .footer-social a:hover { background: var(--blue); color: #fff; border-color: var(--blue); }
+    .footer-divider { border-top: 1px solid rgba(255,255,255,0.07); margin: 2rem 0 1.5rem; }
+    .footer-copy { font-size: 0.72rem; color: rgba(255,255,255,0.2); }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .reveal {
+      opacity: 0;
+      transform: translateY(35px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* colour helpers */
+    .c-blue   { color: var(--blue) !important; }
+    .c-orange { color: var(--orange) !important; }
+    .c-green  { color: var(--green) !important; }
+    .c-purple { color: var(--purple) !important; }
+    .c-red    { color: var(--red) !important; }
+    .c-teal   { color: var(--teal) !important; }
+    .bg-blue   { background: var(--blue) !important; }
+    .bg-orange { background: var(--orange) !important; }
+    .bg-green  { background: var(--green) !important; }
+    .bg-red    { background: var(--red) !important; }
+    .bg-teal   { background: var(--teal) !important; }
+    .bg-purple { background: var(--purple) !important; }
+    .bg-pink   { background: var(--pink) !important; }
+    .bg-yellow-dark { background: var(--yellow) !important; }
+  </style>
+</head>
+<body>
+
+<!-- ── NAVBAR ── -->
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand" href="#">AKASA<span>.</span></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+      <ul class="navbar-nav align-items-lg-center gap-lg-1">
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#activities">Activities</a></li>
+        <li class="nav-item"><a class="nav-link" href="events.html">Events</a></li>
+        <li class="nav-item"><a class="nav-link" href="#committee">Committee</a></li>
+        <li class="nav-item ms-lg-2"><a class="nav-link btn-nav" href="#join">Join Us</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section id="hero">
+  <div class="hero-blob blob1"></div>
+  <div class="hero-blob blob2"></div>
+  <div class="hero-blob blob3"></div>
+  <div class="container">
+    <div class="row align-items-center gy-5">
+      <div class="col-lg-6">
+        <div class="hero-badge">
+          <span class="dot"></span>
+          Now Open Registration 2025
+        </div>
+        <h1 class="hero-title">
+          <!-- NO<br> -->
+           <span class="c-red">No</span>
+          <span class="c-black">Pressure</span> <br>
+          <span class="c-blue">Just</span>
+          <span class="c-orange">Play</span>
+        </h1>
+        <p class="hero-sub">A vibrant community built for athletes — driven by passion, powered by teamwork. Train hard, compete harder, grow together.</p>
+        <div class="hero-cta">
+          <a href="#join" class="btn-primary-custom">Join the Club</a>
+          <a href="#activities" class="btn-outline-custom">Explore Activities</a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="stat-num c-blue">320+</div>
+            <div class="stat-label">Members</div>
+          </div>
+          <div class="hero-stat">
+            <div class="stat-num c-orange">8</div>
+            <div class="stat-label">Sports</div>
+          </div>
+          <div class="hero-stat">
+            <div class="stat-num c-green">47</div>
+            <div class="stat-label">Trophies</div>
+          </div>
+          <div class="hero-stat">
+            <div class="stat-num c-purple">6+</div>
+            <div class="stat-label">Years</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-5 offset-lg-1 d-none d-lg-block" style="position:relative">
+        <div class="hero-card-big">
+          <!-- <i class="bi bi-trophy-fill icon-big"></i> -->
+          <img src="logo.png" alt="AKASA Sports Club Logo" class="icon-big">
+          <!-- <div class="label-over">AKASA SPORTS CLUB</div> -->
+        </div>
+        <div class="floating-pill pill1">
+          <span class="pill-dot" style="background:var(--green)"></span>
+          Active Members: 320
+        </div>
+        <div class="floating-pill pill2">
+          <span class="pill-dot" style="background:var(--orange)"></span>
+          Next Event: Sat 8 AM
+        </div>
+        <div class="floating-pill pill3">
+          <span class="pill-dot" style="background:var(--purple)"></span>
+          6 Sport Divisions
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ABOUT ── -->
+<section id="about">
+  <div class="container">
+    <div class="row align-items-center gy-5">
+      <div class="col-lg-6 reveal">
+        <div class="sec-label c-blue">Who We Are</div>
+        <h2 class="sec-title">More Than<br><span class="c-orange">A Club</span></h2>
+        <p class="sec-desc mt-3">
+          APEX Sport Club was founded in 2018 with a single mission — to create an inclusive, high-performance environment where every athlete can thrive. From beginners to elite competitors, we welcome everyone who shares a love for sport.
+        </p>
+        <div class="about-highlight mt-4">
+          "Sport is the great equalizer. At APEX, we don't just train bodies — we build character, resilience, and brotherhood."
+          <div style="font-size:0.72rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--blue);margin-top:0.8rem;">— Founder, APEX Sport Club</div>
+        </div>
+      </div>
+      <div class="col-lg-5 offset-lg-1 reveal">
+        <div class="row g-3">
+          <div class="col-6">
+            <div class="fact-box" style="background:linear-gradient(135deg,var(--blue),#5b9dff)">
+              <div class="fact-num">320+</div>
+              <div class="fact-lbl">Active Members</div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="fact-box" style="background:linear-gradient(135deg,var(--orange),#ffab5e)">
+              <div class="fact-num">8</div>
+              <div class="fact-lbl">Sport Divisions</div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="fact-box" style="background:linear-gradient(135deg,var(--green),#52e08a)">
+              <div class="fact-num">47</div>
+              <div class="fact-lbl">Trophies Won</div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="fact-box" style="background:linear-gradient(135deg,var(--purple),#b48aff)">
+              <div class="fact-num">12+</div>
+              <div class="fact-lbl">Expert Coaches</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ACTIVITIES ── -->
+<section id="activities">
+  <div class="container">
+    <div class="row align-items-end mb-5">
+      <div class="col-lg-6 reveal">
+        <div class="sec-label c-orange">What We Do</div>
+        <h2 class="sec-title">Our <span class="c-blue">Activities</span></h2>
+      </div>
+      <div class="col-lg-5 offset-lg-1 reveal">
+        <p class="sec-desc">A wide range of sporting activities designed to challenge, connect, and elevate every member — whatever your level.</p>
+      </div>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="activity-card">
+          <div class="top-bar" style="background:var(--blue)"></div>
+          <div class="activity-icon bg-blue"><i class="bi bi-lightning-charge-fill"></i></div>
+          <h5>Futsal</h5>
+          <p>High-intensity indoor football with weekly league matches and skill drills for all levels.</p>
+          <div class="activity-day c-blue"><i class="bi bi-clock me-1"></i>Mon & Wed · 7:00 PM</div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="activity-card">
+          <div class="top-bar" style="background:var(--orange)"></div>
+          <div class="activity-icon bg-orange"><i class="bi bi-trophy-fill"></i></div>
+          <h5>Badminton</h5>
+          <p>Singles & doubles sessions with monthly competitive tournaments at our dedicated courts.</p>
+          <div class="activity-day c-orange"><i class="bi bi-clock me-1"></i>Tue & Thu · 6:30 PM</div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="activity-card">
+          <div class="top-bar" style="background:var(--green)"></div>
+          <div class="activity-icon bg-green"><i class="bi bi-heart-pulse-fill"></i></div>
+          <h5>Running Club</h5>
+          <p>Group runs from 5K to half-marathon with pace groups and race preparation coaching.</p>
+          <div class="activity-day c-green"><i class="bi bi-clock me-1"></i>Sat · 6:00 AM</div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="activity-card">
+          <div class="top-bar" style="background:var(--red)"></div>
+          <div class="activity-icon bg-red"><i class="bi bi-arrow-repeat"></i></div>
+          <h5>Basketball</h5>
+          <p>3-on-3 and full-court 5-on-5 sessions open to recreational and competitive players alike.</p>
+          <div class="activity-day c-red"><i class="bi bi-clock me-1"></i>Fri · 8:00 PM</div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="activity-card">
+          <div class="top-bar" style="background:var(--teal)"></div>
+          <div class="activity-icon bg-teal"><i class="bi bi-water"></i></div>
+          <h5>Swimming</h5>
+          <p>Structured swim training for endurance and technique with qualified instructors on weekends.</p>
+          <div class="activity-day c-teal"><i class="bi bi-clock me-1"></i>Sun · 7:30 AM</div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="activity-card">
+          <div class="top-bar" style="background:var(--purple)"></div>
+          <div class="activity-icon bg-purple"><i class="bi bi-person-arms-up"></i></div>
+          <h5>Fitness Training</h5>
+          <p>Strength & conditioning bootcamps by certified trainers to boost overall athletic performance.</p>
+          <div class="activity-day c-purple"><i class="bi bi-clock me-1"></i>Mon–Fri · 5:30 AM</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── EVENTS ── -->
+<section id="events">
+  <div class="container">
+    <div class="row align-items-end mb-5">
+      <div class="col-lg-6 reveal">
+        <div class="sec-label c-pink">What's On</div>
+        <h2 class="sec-title">Upcoming <span class="c-blue">Events</span></h2>
+      </div>
+      <div class="col-lg-4 offset-lg-2 reveal d-flex align-items-end justify-content-lg-end">
+        <a href="events.html" class="btn-outline-custom" style="font-size:0.72rem;padding:0.65rem 1.5rem;">View All Events</a>
+      </div>
+    </div>
+
+    <!-- Row 1: Featured + 2 stacked -->
+    <div class="row g-4 mb-4">
+
+      <!-- FEATURED CARD -->
+      <div class="col-lg-6 reveal">
+        <div class="event-card event-card-featured h-100">
+          <div class="event-img-wrap">
+            <img src="https://images.unsplash.com/photo-1529900748604-07564a03e7a6?w=800&auto=format&fit=crop" alt="APEX Cup Futsal Tournament"/>
+            <span class="event-cat-badge" style="background:var(--blue)">Futsal</span>
+            <span class="event-status" style="color:var(--orange)">● Upcoming</span>
+          </div>
+          <div class="event-body">
+            <div class="event-date-row">
+              <div class="date-icon" style="background:var(--blue)"><i class="bi bi-calendar-event"></i></div>
+              Saturday, 15 March 2025 &nbsp;·&nbsp; 8:00 AM – 6:00 PM
+            </div>
+            <div class="event-title">APEX Cup Futsal<br>Tournament 2025</div>
+            <p class="event-desc">Our biggest futsal event of the year returns! 16 teams compete across 3 divisions — Open, Under-21, and Women's. Enjoy a full day of fast-paced action, live commentary, and prize money for top finishers. Open to club members and registered guest teams.</p>
+          </div>
+          <div class="event-footer">
+            <div class="d-flex gap-3">
+              <div class="event-meta"><i class="bi bi-geo-alt" style="color:var(--blue)"></i> Stadium MPSN, Seremban</div>
+              <div class="event-meta"><i class="bi bi-people" style="color:var(--green)"></i> 16 Teams · 120+ Players</div>
+            </div>
+            <a href="#join" class="event-btn" style="background:var(--blue)">Register</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2 stacked on right -->
+      <div class="col-lg-6">
+        <div class="row g-4 h-100">
+
+          <div class="col-12 reveal">
+            <div class="event-card">
+              <div class="event-img-wrap" style="height:180px">
+                <img src="https://images.unsplash.com/photo-1596491517071-e6e8f9da0680?w=700&auto=format&fit=crop" alt="Badminton Open"/>
+                <span class="event-cat-badge" style="background:var(--orange)">Badminton</span>
+                <span class="event-status" style="color:var(--green)">● Open</span>
+              </div>
+              <div class="event-body">
+                <div class="event-date-row">
+                  <div class="date-icon" style="background:var(--orange)"><i class="bi bi-calendar-event"></i></div>
+                  Sunday, 23 March 2025 &nbsp;·&nbsp; 9:00 AM
+                </div>
+                <div class="event-title">APEX Badminton Open Championship</div>
+                <p class="event-desc">Doubles and singles categories for all skill levels. Cash prizes and trophies for top 3 in each category. Racket loan available for new participants.</p>
+              </div>
+              <div class="event-footer">
+                <div class="event-meta"><i class="bi bi-geo-alt" style="color:var(--orange)"></i> Dewan Badminton Sri Seremban</div>
+                <a href="#join" class="event-btn" style="background:var(--orange)">Join</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 reveal">
+            <div class="event-card">
+              <div class="event-img-wrap" style="height:180px">
+                <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=700&auto=format&fit=crop" alt="5K Fun Run"/>
+                <span class="event-cat-badge" style="background:var(--green)">Running</span>
+                <span class="event-status" style="color:var(--muted)">Coming Soon</span>
+              </div>
+              <div class="event-body">
+                <div class="event-date-row">
+                  <div class="date-icon" style="background:var(--green)"><i class="bi bi-calendar-event"></i></div>
+                  Saturday, 5 April 2025 &nbsp;·&nbsp; 6:00 AM
+                </div>
+                <div class="event-title">APEX 5K Fun Run & Charity</div>
+                <p class="event-desc">A community fun run through the scenic Taman Bukit Seremban with proceeds going to local charity. All fitness levels welcome. Finisher medal guaranteed!</p>
+              </div>
+              <div class="event-footer">
+                <div class="event-meta"><i class="bi bi-geo-alt" style="color:var(--green)"></i> Taman Bukit Seremban</div>
+                <a href="#join" class="event-btn" style="background:var(--green)">Register</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Row 2: 3 equal cards -->
+    <div class="row g-4">
+
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="event-card">
+          <div class="event-img-wrap">
+            <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?w=600&auto=format&fit=crop" alt="Basketball 3v3"/>
+            <span class="event-cat-badge" style="background:var(--red)">Basketball</span>
+            <span class="event-status" style="color:var(--red)">● Filling Fast</span>
+          </div>
+          <div class="event-body">
+            <div class="event-date-row">
+              <div class="date-icon" style="background:var(--red)"><i class="bi bi-calendar-event"></i></div>
+              Fri–Sat, 18–19 April 2025
+            </div>
+            <div class="event-title">3-on-3 Basketball Street League</div>
+            <p class="event-desc">Two-day outdoor street basketball league. Register a team of 4 and compete for the APEX street title. Open to members and public.</p>
+          </div>
+          <div class="event-footer">
+            <div class="event-meta"><i class="bi bi-people" style="color:var(--red)"></i> 24 Teams Max</div>
+            <a href="#join" class="event-btn" style="background:var(--red)">Register</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="event-card">
+          <div class="event-img-wrap">
+            <img src="https://images.unsplash.com/photo-1519315901367-f34ff9154487?w=600&auto=format&fit=crop" alt="Swimming Gala"/>
+            <span class="event-cat-badge" style="background:var(--teal)">Swimming</span>
+            <span class="event-status" style="color:var(--blue)">● Open</span>
+          </div>
+          <div class="event-body">
+            <div class="event-date-row">
+              <div class="date-icon" style="background:var(--teal)"><i class="bi bi-calendar-event"></i></div>
+              Sunday, 27 April 2025 &nbsp;·&nbsp; 7:30 AM
+            </div>
+            <div class="event-title">APEX Inter-Club Swimming Gala</div>
+            <p class="event-desc">Freestyle, breaststroke, and relay events across age categories. Compete against other clubs in the district for the annual swimming trophy.</p>
+          </div>
+          <div class="event-footer">
+            <div class="event-meta"><i class="bi bi-geo-alt" style="color:var(--teal)"></i> Olympic Pool MPPD</div>
+            <a href="#join" class="event-btn" style="background:var(--teal)">Register</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="event-card">
+          <div class="event-img-wrap">
+            <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&auto=format&fit=crop" alt="Fitness Bootcamp"/>
+            <span class="event-cat-badge" style="background:var(--purple)">Fitness</span>
+            <span class="event-status" style="color:var(--purple)">● Monthly</span>
+          </div>
+          <div class="event-body">
+            <div class="event-date-row">
+              <div class="date-icon" style="background:var(--purple)"><i class="bi bi-calendar-event"></i></div>
+              Every Last Saturday · 7:00 AM
+            </div>
+            <div class="event-title">APEX Outdoor Bootcamp Challenge</div>
+            <p class="event-desc">Monthly outdoor fitness challenge with circuit training, team relays, and endurance drills led by our certified coaches. Great for all fitness levels.</p>
+          </div>
+          <div class="event-footer">
+            <div class="event-meta"><i class="bi bi-geo-alt" style="color:var(--purple)"></i> Lapangan APEX, Seremban</div>
+            <a href="#join" class="event-btn" style="background:var(--purple)">Join Free</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── COMMITTEE ── -->
+<section id="committee">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <div class="sec-label c-purple">Meet the Team</div>
+      <h2 class="sec-title">Committee <span class="c-blue">Members</span></h2>
+      <p class="sec-desc mx-auto mt-3">The dedicated individuals who keep APEX running — organizing events, managing operations, and supporting every member.</p>
+    </div>
+    <div class="row g-4 justify-content-center">
+      <div class="col-sm-6 col-md-4 col-lg-3 reveal">
+        <div class="member-card">
+          <div class="member-avatar bg-blue">AZ</div>
+          <div class="member-role-badge bg-blue">President</div>
+          <div class="member-name">Ahmad Zafran</div>
+          <p class="member-desc">Leading the club since 2022 with a vision to grow APEX into a state-level powerhouse.</p>
+          <div class="member-social"><a href="#"><i class="bi bi-instagram"></i></a><a href="#"><i class="bi bi-linkedin"></i></a></div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4 col-lg-3 reveal">
+        <div class="member-card">
+          <div class="member-avatar bg-orange">NR</div>
+          <div class="member-role-badge bg-orange">Vice President</div>
+          <div class="member-name">Nadia Rasyid</div>
+          <p class="member-desc">Oversees strategic planning and ensures programs align with the club's core mission.</p>
+          <div class="member-social"><a href="#"><i class="bi bi-instagram"></i></a><a href="#"><i class="bi bi-linkedin"></i></a></div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4 col-lg-3 reveal">
+        <div class="member-card">
+          <div class="member-avatar bg-green">HK</div>
+          <div class="member-role-badge bg-green">Secretary</div>
+          <div class="member-name">Haziq Kamal</div>
+          <p class="member-desc">Manages all administrative affairs, scheduling, and official communications.</p>
+          <div class="member-social"><a href="#"><i class="bi bi-instagram"></i></a><a href="#"><i class="bi bi-linkedin"></i></a></div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4 col-lg-3 reveal">
+        <div class="member-card">
+          <div class="member-avatar bg-pink">SY</div>
+          <div class="member-role-badge bg-pink">Treasurer</div>
+          <div class="member-name">Syafiqah Yusof</div>
+          <p class="member-desc">Responsible for financial management, budgeting, and sponsorship coordination.</p>
+          <div class="member-social"><a href="#"><i class="bi bi-instagram"></i></a><a href="#"><i class="bi bi-linkedin"></i></a></div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4 col-lg-3 reveal">
+        <div class="member-card">
+          <div class="member-avatar bg-red">IM</div>
+          <div class="member-role-badge bg-red">Sports Director</div>
+          <div class="member-name">Irfan Malik</div>
+          <p class="member-desc">Curates all training programs and competition strategies across sport divisions.</p>
+          <div class="member-social"><a href="#"><i class="bi bi-instagram"></i></a><a href="#"><i class="bi bi-linkedin"></i></a></div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4 col-lg-3 reveal">
+        <div class="member-card">
+          <div class="member-avatar bg-teal">LF</div>
+          <div class="member-role-badge bg-teal">Events Head</div>
+          <div class="member-name">Liyana Farid</div>
+          <p class="member-desc">Plans and executes all club events, from tournaments to community outreach.</p>
+          <div class="member-social"><a href="#"><i class="bi bi-instagram"></i></a><a href="#"><i class="bi bi-linkedin"></i></a></div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4 col-lg-3 reveal">
+        <div class="member-card">
+          <div class="member-avatar bg-purple">DH</div>
+          <div class="member-role-badge bg-purple">Media & Comms</div>
+          <div class="member-name">Danish Hafiz</div>
+          <p class="member-desc">Handles social media, branding, and all visual communications for the club.</p>
+          <div class="member-social"><a href="#"><i class="bi bi-instagram"></i></a><a href="#"><i class="bi bi-linkedin"></i></a></div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4 col-lg-3 reveal">
+        <div class="member-card">
+          <div class="member-avatar" style="background:var(--yellow);color:var(--ink)">RA</div>
+          <div class="member-role-badge" style="background:var(--yellow);color:var(--ink)">Welfare Officer</div>
+          <div class="member-name">Rania Azmi</div>
+          <p class="member-desc">Supports member wellbeing and ensures an inclusive, respectful club environment.</p>
+          <div class="member-social"><a href="#"><i class="bi bi-instagram"></i></a><a href="#"><i class="bi bi-linkedin"></i></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── JOIN ── -->
+<section id="join">
+  <div class="container reveal">
+    <div class="join-box">
+      <div class="row align-items-center gy-4">
+        <div class="col-lg-7" style="position:relative;z-index:1">
+          <div class="sec-label">Ready to Start?</div>
+          <h2 class="sec-title">Become Part<br>Of APEX</h2>
+          <p class="mt-3 mb-0">Open registration is now available. Join a growing community of passionate athletes and take your game to the next level.</p>
+          <a href="mailto:join@apexsportclub.com" class="btn-white mt-4">Register Now</a>
+        </div>
+        <div class="col-lg-4 offset-lg-1" style="position:relative;z-index:1">
+          <div class="contact-item"><div class="contact-icon"><i class="bi bi-envelope-fill"></i></div> join@apexsportclub.com</div>
+          <div class="contact-item"><div class="contact-icon"><i class="bi bi-telephone-fill"></i></div> +60 12-345 6789</div>
+          <div class="contact-item"><div class="contact-icon"><i class="bi bi-geo-alt-fill"></i></div> Stadium Kompleks Sukan, Seremban</div>
+          <div class="contact-item"><div class="contact-icon"><i class="bi bi-clock-fill"></i></div> Mon–Fri, 9am–5pm</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="container">
+    <div class="row gy-4">
+      <div class="col-lg-4">
+        <div class="footer-brand">APEX<span>.</span></div>
+        <div class="footer-tagline">Est. 2018 · Seremban Sport Club</div>
+        <div class="footer-social mt-3">
+          <a href="#"><i class="bi bi-instagram"></i></a>
+          <a href="#"><i class="bi bi-facebook"></i></a>
+          <a href="#"><i class="bi bi-twitter-x"></i></a>
+          <a href="#"><i class="bi bi-youtube"></i></a>
+        </div>
+      </div>
+      <div class="col-6 col-lg-2">
+        <div class="footer-col-title">Navigate</div>
+        <a href="#about" class="footer-link">About</a>
+        <a href="#activities" class="footer-link">Activities</a>
+        <a href="#events" class="footer-link">Events</a>
+        <a href="#committee" class="footer-link">Committee</a>
+        <a href="#join" class="footer-link">Join Us</a>
+      </div>
+      <div class="col-6 col-lg-2">
+        <div class="footer-col-title">Sports</div>
+        <a href="#activities" class="footer-link">Futsal</a>
+        <a href="#activities" class="footer-link">Badminton</a>
+        <a href="#activities" class="footer-link">Running</a>
+        <a href="#activities" class="footer-link">Swimming</a>
+      </div>
+      <div class="col-lg-4">
+        <div class="footer-col-title">Stay Updated</div>
+        <p style="font-size:0.8rem;color:rgba(255,255,255,0.35);line-height:1.7;">Get the latest news on events, training schedules, and club announcements.</p>
+        <div class="d-flex gap-2 mt-3">
+          <input type="email" placeholder="your@email.com" style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);border-radius:50px;padding:0.6rem 1rem;font-size:0.8rem;color:#fff;outline:none;flex:1;"/>
+          <button style="background:var(--blue);border:none;border-radius:50px;padding:0.6rem 1.2rem;color:#fff;font-size:0.8rem;font-weight:600;cursor:pointer;">Subscribe</button>
+        </div>
+      </div>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-copy text-center">© 2025 APEX Sport Club. All rights reserved.</div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 90);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
