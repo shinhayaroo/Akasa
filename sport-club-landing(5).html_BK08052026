@@ -3,12 +3,11 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>AKASA Sport Club</title>
-  <link rel="icon" type="image/png" sizes="5x5" href="logo.png">
+  <title>APEX Sport Club</title>
+  <link rel="icon" type="image/png" sizes="5x5" href="assets/logo.png">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <style>
     :root {
       --bg:       #f7f5f0;
@@ -259,57 +258,6 @@
     }
     .pill-dot { width:10px; height:10px; border-radius:50%; }
 
-    /* ─── HERO SLIDESHOW ─── */
-    .hero-slideshow {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      border-radius: 24px;
-      overflow: hidden;
-    }
-    .hero-slideshow .slide {
-      position: absolute;
-      inset: 0;
-      opacity: 0;
-      transition: opacity 1s ease;
-    }
-    .hero-slideshow .slide.active { opacity: 1; }
-    .hero-slideshow .slide img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .slideshow-dots {
-      position: absolute;
-      bottom: 1.2rem;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 0.45rem;
-      z-index: 2;
-    }
-    .slideshow-dot {
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.45);
-      cursor: pointer;
-      transition: background 0.3s, transform 0.3s;
-    }
-    .slideshow-dot.active {
-      background: #fff;
-      transform: scale(1.35);
-    }
-
-    /* ─── MOBILE ADJUSTMENTS ─── */
-    @media (max-width: 991.98px) {
-      .hero-card-big { height: 280px; border-radius: 18px; }
-      .hero-slideshow { border-radius: 18px; }
-      .pill1 { top: 1rem;  right: 0.5rem; }
-      .pill2 { bottom: 3.5rem; right: 0.5rem; }
-      .pill3 { top: 45%;  left: 0.5rem; }
-    }
-
     /* ─── SECTION COMMON ─── */
     section { padding: 7rem 0; }
     .sec-label {
@@ -528,135 +476,14 @@
       border-radius: 50px;
     }
 
-    /* ─── GALLERY PREVIEW ─── */
-    #gallery { background: var(--bg2); }
-    .gallery-card {
-      background: #fff;
-      border-radius: 20px;
-      overflow: hidden;
-      border: 1.5px solid rgba(0,0,0,0.05);
-      transition: transform 0.3s, box-shadow 0.3s;
-      cursor: pointer;
-      height: 100%;
-    }
-    .gallery-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 50px rgba(0,0,0,0.12);
-    }
-    .gallery-img-wrap {
-      position: relative;
-      height: 210px;
-      overflow: hidden;
-    }
-    .gallery-img-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s ease;
-    }
-    .gallery-card:hover .gallery-img-wrap img { transform: scale(1.07); }
-    .gallery-cat-badge {
-      position: absolute;
-      top: 0.85rem; left: 0.85rem;
-      font-size: 0.6rem;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      padding: 0.25rem 0.7rem;
-      border-radius: 50px;
-      color: #fff;
-      z-index: 2;
-    }
-    .gallery-photo-count {
-      position: absolute;
-      top: 0.85rem; right: 0.85rem;
-      background: rgba(0,0,0,0.5);
-      backdrop-filter: blur(6px);
-      color: #fff;
-      font-size: 0.65rem;
-      font-weight: 700;
-      padding: 0.28rem 0.7rem;
-      border-radius: 50px;
-      display: flex;
-      align-items: center;
-      gap: 0.3rem;
-    }
-    .gallery-hover-hint {
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0);
-      transition: background 0.3s;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .gallery-card:hover .gallery-hover-hint { background: rgba(0,0,0,0.18); }
-    .gallery-hint-pill {
-      background: rgba(255,255,255,0.92);
-      backdrop-filter: blur(8px);
-      border-radius: 50px;
-      padding: 0.45rem 1.1rem;
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.8px;
-      color: var(--ink);
-      opacity: 0;
-      transform: translateY(8px);
-      transition: all 0.3s;
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-    .gallery-card:hover .gallery-hint-pill { opacity: 1; transform: translateY(0); }
-    .gallery-body {
-      padding: 1.1rem 1.3rem 0.9rem;
-    }
-    .gallery-date {
-      font-size: 0.68rem;
-      font-weight: 600;
-      color: var(--muted);
-      display: flex;
-      align-items: center;
-      gap: 0.35rem;
-      margin-bottom: 0.4rem;
-    }
-    .gallery-title {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.2rem;
-      letter-spacing: 0.5px;
-      line-height: 1.1;
-    }
-    .gallery-desc {
-      font-size: 0.78rem;
-      color: var(--muted);
-      line-height: 1.65;
-      margin-top: 0.35rem;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
-
     /* ─── COMMITTEE ─── */
     #committee { background: #fff; }
-    #committee .row {
-      align-items: stretch;
-    }
-    #committee .col-sm-6,
-    #committee .col-md-4,
-    #committee .col-lg-3 {
-      display: flex;
-    }
     .member-card {
       background: var(--bg);
       border-radius: 20px;
       padding: 2rem 1.5rem;
       text-align: center;
       transition: transform 0.3s, box-shadow 0.3s;
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-      height: 100%;
     }
     .member-card:hover {
       transform: translateY(-6px);
@@ -670,12 +497,6 @@
       font-family: 'Bebas Neue', sans-serif;
       font-size: 1.6rem;
       color: #fff;
-    }
-    .member-avatar-img {
-      width: 110px; height: 133px;
-      margin: 0 auto 1rem;
-      object-fit: cover;
-      display: block;
     }
     .member-role-badge {
       display: inline-block;
@@ -830,85 +651,6 @@
     }
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
-    /* ─── DARK THEME ─── */
-    [data-theme="dark"] {
-      --bg:    #0f0f0f;
-      --bg2:   #1a1a1a;
-      --ink:   #f0ede8;
-      --muted: #888;
-    }
-    [data-theme="dark"] .navbar {
-      background: rgba(15,15,15,0.92);
-      border-bottom-color: rgba(255,255,255,0.07);
-    }
-    [data-theme="dark"] .hero-badge,
-    [data-theme="dark"] .hero-stats,
-    [data-theme="dark"] .activity-card,
-    [data-theme="dark"] .member-card,
-    [data-theme="dark"] .gallery-card,
-    [data-theme="dark"] .event-card {
-      background: #1e1e1e;
-      border-color: rgba(255,255,255,0.07);
-    }
-    [data-theme="dark"] .hero-stat { border-right-color: rgba(255,255,255,0.08); }
-    [data-theme="dark"] .activity-day { background: #2a2a2a; }
-    [data-theme="dark"] .about-highlight { background: rgba(26,108,255,0.1); }
-    [data-theme="dark"] .floating-pill { background: #1e1e1e; color: var(--ink); }
-    [data-theme="dark"] .gallery-hint-pill,
-    [data-theme="dark"] .open-hint-pill { background: rgba(30,30,30,0.95); color: #f0ede8; }
-    [data-theme="dark"] .album-tag { background: #2a2a2a; color: #999; }
-    [data-theme="dark"] .event-footer,
-    [data-theme="dark"] .album-footer { border-top-color: rgba(255,255,255,0.07); }
-    [data-theme="dark"] .search-box input { background: #2a2a2a; border-color: rgba(255,255,255,0.1); color: var(--ink); }
-    [data-theme="dark"] .chip { background: #2a2a2a; border-color: rgba(255,255,255,0.1); }
-    [data-theme="dark"] .join-box { background: linear-gradient(135deg,#0d3fa6 0%,#1a6cff 100%); }
-
-    /* sections with hardcoded #fff backgrounds */
-    [data-theme="dark"] #about     { background: #141414; }
-    [data-theme="dark"] #events    { background: #141414; }
-    [data-theme="dark"] #committee { background: #141414; }
-
-    /* footer – var(--ink) would turn WHITE in dark mode, force it dark */
-    [data-theme="dark"] footer { background: #050505 !important; }
-
-    /* member social icon buttons */
-    [data-theme="dark"] .member-social a { background: #2a2a2a; color: #aaa; }
-    [data-theme="dark"] .member-social a:hover { background: var(--blue); color: #fff; }
-
-    /* footer newsletter input */
-    [data-theme="dark"] .footer-newsletter-input {
-      background: rgba(255,255,255,0.07);
-      border-color: rgba(255,255,255,0.1);
-      color: #fff;
-    }
-
-    /* fact boxes (about section) already use gradient – just keep border subtle */
-    [data-theme="dark"] .fact-box { box-shadow: 0 4px 20px rgba(0,0,0,0.4); }
-
-    body, .navbar, .activity-card, .gallery-card, .event-card, .member-card,
-    .hero-badge, .hero-stats, .floating-pill, #about, #events, #committee, footer {
-      transition: background-color 0.35s ease, color 0.25s ease, border-color 0.35s ease;
-    }
-
-    /* ─── THEME TOGGLE BUTTON ─── */
-    .theme-toggle {
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      border: 1.5px solid rgba(0,0,0,0.12);
-      background: var(--bg2);
-      color: var(--ink);
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1rem;
-      flex-shrink: 0;
-      transition: transform 0.2s, box-shadow 0.2s, background-color 0.35s, border-color 0.35s;
-    }
-    .theme-toggle:hover { transform: rotate(20deg) scale(1.1); box-shadow: 0 4px 14px rgba(0,0,0,0.15); }
-    [data-theme="dark"] .theme-toggle { border-color: rgba(255,255,255,0.14); }
-
     /* colour helpers */
     .c-blue   { color: var(--blue) !important; }
     .c-orange { color: var(--orange) !important; }
@@ -937,17 +679,11 @@
     </button>
     <div class="collapse navbar-collapse justify-content-end" id="navMenu">
       <ul class="navbar-nav align-items-lg-center gap-lg-1">
-        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
         <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
         <li class="nav-item"><a class="nav-link" href="#activities">Activities</a></li>
-        <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+        <li class="nav-item"><a class="nav-link" href="events.html">Events</a></li>
         <li class="nav-item"><a class="nav-link" href="#committee">Committee</a></li>
         <li class="nav-item ms-lg-2"><a class="nav-link btn-nav" href="#join">Join Us</a></li>
-        <li class="nav-item ms-2">
-          <button class="theme-toggle" id="themeToggle" title="Toggle dark / light mode">
-            <i class="bi bi-moon-fill" id="themeIcon"></i>
-          </button>
-        </li>
       </ul>
     </div>
   </div>
@@ -996,26 +732,11 @@
           </div>
         </div>
       </div>
-      <div class="col-12 col-lg-5 offset-lg-1" style="position:relative">
+      <div class="col-lg-5 offset-lg-1 d-none d-lg-block" style="position:relative">
         <div class="hero-card-big">
-          <div class="hero-slideshow">
-            <div class="slide active">
-              <img src="https://images.unsplash.com/photo-1529900748604-07564a03e7a6?w=800&auto=format&fit=crop" alt="Futsal">
-            </div>
-            <div class="slide">
-              <img src="https://images.unsplash.com/photo-1596491517071-e6e8f9da0680?w=700&auto=format&fit=crop" alt="Badminton">
-            </div>
-            <div class="slide">
-              <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=700&auto=format&fit=crop" alt="Running">
-            </div>
-            <div class="slide">
-              <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?w=600&auto=format&fit=crop" alt="Basketball">
-            </div>
-            <div class="slide">
-              <img src="https://images.unsplash.com/photo-1519315901367-f34ff9154487?w=600&auto=format&fit=crop" alt="Swimming">
-            </div>
-          </div>
-          <div class="slideshow-dots"></div>
+          <!-- <i class="bi bi-trophy-fill icon-big"></i> -->
+          <img src="logo.png" alt="AKASA Sports Club Logo" class="icon-big">
+          <!-- <div class="label-over">AKASA SPORTS CLUB</div> -->
         </div>
         <div class="floating-pill pill1">
           <span class="pill-dot" style="background:var(--green)"></span>
@@ -1042,11 +763,11 @@
         <div class="sec-label c-blue">Who We Are</div>
         <h2 class="sec-title">More Than<br><span class="c-orange">A Club</span></h2>
         <p class="sec-desc mt-3">
-          AKASA Sport Club was founded in 2018 with a single mission — to create an inclusive, high-performance environment where every athlete can thrive. From beginners to elite competitors, we welcome everyone who shares a love for sport.
+          APEX Sport Club was founded in 2018 with a single mission — to create an inclusive, high-performance environment where every athlete can thrive. From beginners to elite competitors, we welcome everyone who shares a love for sport.
         </p>
         <div class="about-highlight mt-4">
-          "Sport is the great equalizer. At AKASA, we don't just train bodies — we build character, resilience, and brotherhood."
-          <div style="font-size:0.72rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--blue);margin-top:0.8rem;">— Founder, AKASA Sport Club</div>
+          "Sport is the great equalizer. At APEX, we don't just train bodies — we build character, resilience, and brotherhood."
+          <div style="font-size:0.72rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--blue);margin-top:0.8rem;">— Founder, APEX Sport Club</div>
         </div>
       </div>
       <div class="col-lg-5 offset-lg-1 reveal">
@@ -1082,7 +803,7 @@
 </section>
 
 <!-- ── ACTIVITIES ── -->
-<!-- <section id="activities">
+<section id="activities">
   <div class="container">
     <div class="row align-items-end mb-5">
       <div class="col-lg-6 reveal">
@@ -1150,257 +871,205 @@
       </div>
     </div>
   </div>
-</section> -->
-<section id="activities">
+</section>
+
+<!-- ── EVENTS ── -->
+<section id="events">
   <div class="container">
     <div class="row align-items-end mb-5">
       <div class="col-lg-6 reveal">
-        <div class="sec-label c-orange">What We Do</div>
-        <h2 class="sec-title">Our <span class="c-blue">Activities</span></h2>
+        <div class="sec-label c-pink">What's On</div>
+        <h2 class="sec-title">Upcoming <span class="c-blue">Events</span></h2>
       </div>
-      <div class="col-lg-5 offset-lg-1 reveal">
-        <p class="sec-desc">A wide range of sports, leisure, and bonding activities designed to connect members, build teamwork, and create memorable experiences together.</p>
-      </div>
-    </div>
-
-    <div class="row g-4">
-
-      <div class="col-md-6 col-lg-4 reveal">
-        <div class="activity-card">
-          <div class="top-bar" style="background:var(--blue)"></div>
-          <div class="activity-icon bg-blue"><i class="fa-solid fa-volleyball"></i></div>
-          <h5>Volleyball</h5>
-          <p>A fun team sport activity that improves teamwork, communication, fitness, and coordination among members.</p>
-          <div class="activity-day c-blue"><i class="bi bi-clock me-1"></i>Club Schedule</div>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-4 reveal">
-        <div class="activity-card">
-          <div class="top-bar" style="background:var(--orange)"></div>
-          <div class="activity-icon bg-orange"><i class="fa-solid fa-futbol"></i></div>
-          <h5>Futsal</h5>
-          <p>An energetic indoor football activity that builds stamina, teamwork, strategy, and friendly competition.</p>
-          <div class="activity-day c-orange"><i class="bi bi-clock me-1"></i>Club Schedule</div>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-4 reveal">
-        <div class="activity-card">
-          <div class="top-bar" style="background:var(--green)"></div>
-          <div class="activity-icon bg-green"><i class="bi bi-dice-5-fill"></i></div>
-          <h5>Boardgame</h5>
-          <p>A relaxed indoor activity where members can enjoy strategic games, improve thinking skills, and strengthen friendships.</p>
-          <div class="activity-day c-green"><i class="bi bi-clock me-1"></i>Club Schedule</div>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-4 reveal">
-        <div class="activity-card">
-          <div class="top-bar" style="background:var(--red)"></div>
-          <div class="activity-icon bg-red"><i class="fa-solid fa-umbrella-beach"></i></div>
-          <h5>Bonding / Staycation Session</h5>
-          <p>A special gathering session for members to relax, connect, share ideas, and build stronger team spirit outside regular activities.</p>
-          <div class="activity-day c-red"><i class="bi bi-clock me-1"></i>Club Schedule</div>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-4 reveal">
-        <div class="activity-card">
-          <div class="top-bar" style="background:var(--teal)"></div>
-          <div class="activity-icon bg-teal"><i class="fa-solid fa-fish"></i></div>
-          <h5>Fishing</h5>
-          <p>A calm outdoor activity that encourages patience, relaxation, teamwork, and appreciation of nature.</p>
-          <div class="activity-day c-teal"><i class="bi bi-clock me-1"></i>Club Schedule</div>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-4 reveal">
-        <div class="activity-card">
-          <div class="top-bar" style="background:var(--purple)"></div>
-          <div class="activity-icon bg-purple">
-  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M7.5 3.5 10 14h4L16.5 3.5h-2L13 12h-2L9.5 3.5h-2Z"/>
-    <path d="M6 3.5 9 14h1.5L8 3.5H6Z"/>
-    <path d="M18 3.5 15 14h-1.5L16 3.5h2Z"/>
-    <path d="M9.5 15h5l1 3.5c.3 1-.5 2-1.5 2h-4c-1 0-1.8-1-1.5-2l1-3.5Z"/>
-  </svg>
-</div>
-          <h5>Badminton</h5>
-          <p>A popular racket sport activity that helps improve agility, focus, fitness, and sportsmanship among members.</p>
-          <div class="activity-day c-purple"><i class="bi bi-clock me-1"></i>Club Schedule</div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ── Gallery ── -->
-<section id="gallery">
-  <div class="container">
-
-    <!-- Header -->
-    <div class="row align-items-end mb-5">
-      <div class="col-lg-7 reveal">
-        <div class="sec-label c-purple">Photo Albums</div>
-        <h2 class="sec-title">Moments in <span class="c-blue">Focus</span></h2>
-        <p class="sec-desc mt-3">A snapshot of the action, the celebration, and the community. Browse our latest albums from recent events.</p>
-      </div>
-      <div class="col-lg-4 offset-lg-1 reveal d-flex align-items-end justify-content-lg-end mt-3 mt-lg-0">
-        <a href="gallery.html" class="btn-primary-custom d-inline-flex align-items-center gap-2">
-          <i class="bi bi-images"></i> View Full Gallery
-        </a>
+      <div class="col-lg-4 offset-lg-2 reveal d-flex align-items-end justify-content-lg-end">
+        <a href="events.html" class="btn-outline-custom" style="font-size:0.72rem;padding:0.65rem 1.5rem;">View All Events</a>
       </div>
     </div>
 
-    <!-- Row 1: 3 uniform cards -->
+    <!-- Row 1: Featured + 2 stacked -->
     <div class="row g-4 mb-4">
 
-      <div class="col-md-6 col-lg-4 reveal">
-        <div class="gallery-card" onclick="window.location='gallery.html'">
-          <div class="gallery-img-wrap">
-            <img src="https://images.unsplash.com/photo-1529900748604-07564a03e7a6?w=700&auto=format&fit=crop" alt="Futsal Tournament"/>
-            <span class="gallery-cat-badge" style="background:var(--blue)">Futsal</span>
-            <div class="gallery-photo-count"><i class="bi bi-images"></i> 7 photos</div>
-            <div class="gallery-hover-hint"><div class="gallery-hint-pill"><i class="bi bi-eye"></i> View Album</div></div>
+      <!-- FEATURED CARD -->
+      <div class="col-lg-6 reveal">
+        <div class="event-card event-card-featured h-100">
+          <div class="event-img-wrap">
+            <img src="https://images.unsplash.com/photo-1529900748604-07564a03e7a6?w=800&auto=format&fit=crop" alt="APEX Cup Futsal Tournament"/>
+            <span class="event-cat-badge" style="background:var(--blue)">Futsal</span>
+            <span class="event-status" style="color:var(--orange)">● Upcoming</span>
           </div>
-          <div class="gallery-body">
-            <div class="gallery-date"><i class="bi bi-calendar3" style="color:var(--blue)"></i> 15 March 2025</div>
-            <div class="gallery-title">AKASA Cup Futsal Tournament 2025</div>
-            <p class="gallery-desc">16 teams, 3 divisions — from opening ceremony to the golden goal in the grand final.</p>
+          <div class="event-body">
+            <div class="event-date-row">
+              <div class="date-icon" style="background:var(--blue)"><i class="bi bi-calendar-event"></i></div>
+              Saturday, 15 March 2025 &nbsp;·&nbsp; 8:00 AM – 6:00 PM
+            </div>
+            <div class="event-title">APEX Cup Futsal<br>Tournament 2025</div>
+            <p class="event-desc">Our biggest futsal event of the year returns! 16 teams compete across 3 divisions — Open, Under-21, and Women's. Enjoy a full day of fast-paced action, live commentary, and prize money for top finishers. Open to club members and registered guest teams.</p>
           </div>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-4 reveal">
-        <div class="gallery-card" onclick="window.location='gallery.html'">
-          <div class="gallery-img-wrap">
-            <img src="https://images.unsplash.com/photo-1596491517071-e6e8f9da0680?w=700&auto=format&fit=crop" alt="Badminton Championship"/>
-            <span class="gallery-cat-badge" style="background:var(--orange)">Badminton</span>
-            <div class="gallery-photo-count"><i class="bi bi-images"></i> 6 photos</div>
-            <div class="gallery-hover-hint"><div class="gallery-hint-pill"><i class="bi bi-eye"></i> View Album</div></div>
-          </div>
-          <div class="gallery-body">
-            <div class="gallery-date"><i class="bi bi-calendar3" style="color:var(--orange)"></i> 23 March 2025</div>
-            <div class="gallery-title">Badminton Open Championship 2025</div>
-            <p class="gallery-desc">64 players, 4 categories — some of the most intense smashes ever seen at Dewan Badminton Sri Seremban.</p>
+          <div class="event-footer">
+            <div class="d-flex gap-3">
+              <div class="event-meta"><i class="bi bi-geo-alt" style="color:var(--blue)"></i> Stadium MPSN, Seremban</div>
+              <div class="event-meta"><i class="bi bi-people" style="color:var(--green)"></i> 16 Teams · 120+ Players</div>
+            </div>
+            <a href="#join" class="event-btn" style="background:var(--blue)">Register</a>
           </div>
         </div>
       </div>
 
-      <div class="col-md-6 col-lg-4 reveal">
-        <div class="gallery-card" onclick="window.location='gallery.html'">
-          <div class="gallery-img-wrap">
-            <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=700&auto=format&fit=crop" alt="5K Fun Run"/>
-            <span class="gallery-cat-badge" style="background:var(--green)">Running</span>
-            <div class="gallery-photo-count"><i class="bi bi-images"></i> 6 photos</div>
-            <div class="gallery-hover-hint"><div class="gallery-hint-pill"><i class="bi bi-eye"></i> View Album</div></div>
+      <!-- 2 stacked on right -->
+      <div class="col-lg-6">
+        <div class="row g-4 h-100">
+
+          <div class="col-12 reveal">
+            <div class="event-card">
+              <div class="event-img-wrap" style="height:180px">
+                <img src="https://images.unsplash.com/photo-1596491517071-e6e8f9da0680?w=700&auto=format&fit=crop" alt="Badminton Open"/>
+                <span class="event-cat-badge" style="background:var(--orange)">Badminton</span>
+                <span class="event-status" style="color:var(--green)">● Open</span>
+              </div>
+              <div class="event-body">
+                <div class="event-date-row">
+                  <div class="date-icon" style="background:var(--orange)"><i class="bi bi-calendar-event"></i></div>
+                  Sunday, 23 March 2025 &nbsp;·&nbsp; 9:00 AM
+                </div>
+                <div class="event-title">APEX Badminton Open Championship</div>
+                <p class="event-desc">Doubles and singles categories for all skill levels. Cash prizes and trophies for top 3 in each category. Racket loan available for new participants.</p>
+              </div>
+              <div class="event-footer">
+                <div class="event-meta"><i class="bi bi-geo-alt" style="color:var(--orange)"></i> Dewan Badminton Sri Seremban</div>
+                <a href="#join" class="event-btn" style="background:var(--orange)">Join</a>
+              </div>
+            </div>
           </div>
-          <div class="gallery-body">
-            <div class="gallery-date"><i class="bi bi-calendar3" style="color:var(--green)"></i> 5 April 2025</div>
-            <div class="gallery-title">5K Fun Run &amp; Charity 2025</div>
-            <p class="gallery-desc">180+ runners hit the trails at dawn for a cause — every finish-line moment captured.</p>
+
+          <div class="col-12 reveal">
+            <div class="event-card">
+              <div class="event-img-wrap" style="height:180px">
+                <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=700&auto=format&fit=crop" alt="5K Fun Run"/>
+                <span class="event-cat-badge" style="background:var(--green)">Running</span>
+                <span class="event-status" style="color:var(--muted)">Coming Soon</span>
+              </div>
+              <div class="event-body">
+                <div class="event-date-row">
+                  <div class="date-icon" style="background:var(--green)"><i class="bi bi-calendar-event"></i></div>
+                  Saturday, 5 April 2025 &nbsp;·&nbsp; 6:00 AM
+                </div>
+                <div class="event-title">APEX 5K Fun Run & Charity</div>
+                <p class="event-desc">A community fun run through the scenic Taman Bukit Seremban with proceeds going to local charity. All fitness levels welcome. Finisher medal guaranteed!</p>
+              </div>
+              <div class="event-footer">
+                <div class="event-meta"><i class="bi bi-geo-alt" style="color:var(--green)"></i> Taman Bukit Seremban</div>
+                <a href="#join" class="event-btn" style="background:var(--green)">Register</a>
+              </div>
+            </div>
           </div>
+
         </div>
       </div>
-
     </div>
 
-    <!-- Row 2: 3 uniform cards -->
+    <!-- Row 2: 3 equal cards -->
     <div class="row g-4">
 
       <div class="col-md-6 col-lg-4 reveal">
-        <div class="gallery-card" onclick="window.location='gallery.html'">
-          <div class="gallery-img-wrap">
-            <img src="https://images.unsplash.com/photo-1519315901367-f34ff9154487?w=700&auto=format&fit=crop" alt="Swimming Gala"/>
-            <span class="gallery-cat-badge" style="background:var(--teal)">Swimming</span>
-            <div class="gallery-photo-count"><i class="bi bi-images"></i> 5 photos</div>
-            <div class="gallery-hover-hint"><div class="gallery-hint-pill"><i class="bi bi-eye"></i> View Album</div></div>
+        <div class="event-card">
+          <div class="event-img-wrap">
+            <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?w=600&auto=format&fit=crop" alt="Basketball 3v3"/>
+            <span class="event-cat-badge" style="background:var(--red)">Basketball</span>
+            <span class="event-status" style="color:var(--red)">● Filling Fast</span>
           </div>
-          <div class="gallery-body">
-            <div class="gallery-date"><i class="bi bi-calendar3" style="color:var(--teal)"></i> 27 April 2025</div>
-            <div class="gallery-title">Inter-Club Swimming Gala 2025</div>
-            <p class="gallery-desc">80 swimmers across age categories — freestyle, relay and backstroke events at Olympic Pool MPPD.</p>
+          <div class="event-body">
+            <div class="event-date-row">
+              <div class="date-icon" style="background:var(--red)"><i class="bi bi-calendar-event"></i></div>
+              Fri–Sat, 18–19 April 2025
+            </div>
+            <div class="event-title">3-on-3 Basketball Street League</div>
+            <p class="event-desc">Two-day outdoor street basketball league. Register a team of 4 and compete for the APEX street title. Open to members and public.</p>
           </div>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-4 reveal">
-        <div class="gallery-card" onclick="window.location='gallery.html'">
-          <div class="gallery-img-wrap">
-            <img src="https://images.unsplash.com/photo-1600679472829-3044539ce405?w=700&auto=format&fit=crop" alt="Night Futsal Final"/>
-            <span class="gallery-cat-badge" style="background:var(--blue)">Futsal</span>
-            <div class="gallery-photo-count"><i class="bi bi-images"></i> 6 photos</div>
-            <div class="gallery-hover-hint"><div class="gallery-hint-pill"><i class="bi bi-eye"></i> View Album</div></div>
-          </div>
-          <div class="gallery-body">
-            <div class="gallery-date"><i class="bi bi-calendar3" style="color:var(--blue)"></i> 14 December 2024</div>
-            <div class="gallery-title">Night Futsal League S1 — Grand Final</div>
-            <p class="gallery-desc">Under the floodlights, AKASA Wolves FC lifted the inaugural Night League trophy in a dramatic final.</p>
+          <div class="event-footer">
+            <div class="event-meta"><i class="bi bi-people" style="color:var(--red)"></i> 24 Teams Max</div>
+            <a href="#join" class="event-btn" style="background:var(--red)">Register</a>
           </div>
         </div>
       </div>
 
       <div class="col-md-6 col-lg-4 reveal">
-        <div class="gallery-card" onclick="window.location='gallery.html'">
-          <div class="gallery-img-wrap">
-            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=700&auto=format&fit=crop" alt="Year-End Awards"/>
-            <span class="gallery-cat-badge" style="background:var(--pink)">Community</span>
-            <div class="gallery-photo-count"><i class="bi bi-images"></i> 6 photos</div>
-            <div class="gallery-hover-hint"><div class="gallery-hint-pill"><i class="bi bi-eye"></i> View Album</div></div>
+        <div class="event-card">
+          <div class="event-img-wrap">
+            <img src="https://images.unsplash.com/photo-1519315901367-f34ff9154487?w=600&auto=format&fit=crop" alt="Swimming Gala"/>
+            <span class="event-cat-badge" style="background:var(--teal)">Swimming</span>
+            <span class="event-status" style="color:var(--blue)">● Open</span>
           </div>
-          <div class="gallery-body">
-            <div class="gallery-date"><i class="bi bi-calendar3" style="color:var(--pink)"></i> 20 December 2024</div>
-            <div class="gallery-title">Year-End Club Dinner &amp; Awards 2024</div>
-            <p class="gallery-desc">200+ members gathered to celebrate an outstanding year with special awards and a night to remember.</p>
+          <div class="event-body">
+            <div class="event-date-row">
+              <div class="date-icon" style="background:var(--teal)"><i class="bi bi-calendar-event"></i></div>
+              Sunday, 27 April 2025 &nbsp;·&nbsp; 7:30 AM
+            </div>
+            <div class="event-title">APEX Inter-Club Swimming Gala</div>
+            <p class="event-desc">Freestyle, breaststroke, and relay events across age categories. Compete against other clubs in the district for the annual swimming trophy.</p>
+          </div>
+          <div class="event-footer">
+            <div class="event-meta"><i class="bi bi-geo-alt" style="color:var(--teal)"></i> Olympic Pool MPPD</div>
+            <a href="#join" class="event-btn" style="background:var(--teal)">Register</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="event-card">
+          <div class="event-img-wrap">
+            <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&auto=format&fit=crop" alt="Fitness Bootcamp"/>
+            <span class="event-cat-badge" style="background:var(--purple)">Fitness</span>
+            <span class="event-status" style="color:var(--purple)">● Monthly</span>
+          </div>
+          <div class="event-body">
+            <div class="event-date-row">
+              <div class="date-icon" style="background:var(--purple)"><i class="bi bi-calendar-event"></i></div>
+              Every Last Saturday · 7:00 AM
+            </div>
+            <div class="event-title">APEX Outdoor Bootcamp Challenge</div>
+            <p class="event-desc">Monthly outdoor fitness challenge with circuit training, team relays, and endurance drills led by our certified coaches. Great for all fitness levels.</p>
+          </div>
+          <div class="event-footer">
+            <div class="event-meta"><i class="bi bi-geo-alt" style="color:var(--purple)"></i> Lapangan APEX, Seremban</div>
+            <a href="#join" class="event-btn" style="background:var(--purple)">Join Free</a>
           </div>
         </div>
       </div>
 
     </div>
-
-    <!-- CTA -->
-    <div class="text-center mt-5 reveal">
-      <a href="gallery.html" class="btn-primary-custom d-inline-flex align-items-center gap-2" style="font-size:0.88rem;padding:1rem 2.8rem;">
-        <i class="bi bi-grid-3x3-gap-fill"></i> Browse All Albums
-      </a>
-      <p style="font-size:0.75rem;color:var(--muted);margin-top:0.9rem;">8 albums · 48 photos · 2023 – 2025</p>
-    </div>
-
   </div>
 </section>
 
 <!-- ── COMMITTEE ── -->
-<!-- <section id="committee">
+<section id="committee">
   <div class="container">
     <div class="text-center mb-5 reveal">
       <div class="sec-label c-purple">Meet the Team</div>
       <h2 class="sec-title">Committee <span class="c-blue">Members</span></h2>
-      <p class="sec-desc mx-auto mt-3">The dedicated individuals who keep AKASA running — organizing events, managing operations, and supporting every member.</p>
+      <p class="sec-desc mx-auto mt-3">The dedicated individuals who keep APEX running — organizing events, managing operations, and supporting every member.</p>
     </div>
     <div class="row g-4 justify-content-center">
       <div class="col-sm-6 col-md-4 col-lg-3 reveal">
         <div class="member-card">
-          <img src="luqman.png" alt="Luqman Hakim" class="member-avatar-img">
+          <div class="member-avatar bg-blue">AZ</div>
           <div class="member-role-badge bg-blue">President</div>
-          <div class="member-name">Luqman Hakim</div>
-          <p class="member-desc">Leading the club since 2022 with a vision to grow AKASA into a state-level powerhouse.</p>
+          <div class="member-name">Ahmad Zafran</div>
+          <p class="member-desc">Leading the club since 2022 with a vision to grow APEX into a state-level powerhouse.</p>
           <div class="member-social"><a href="#"><i class="bi bi-instagram"></i></a><a href="#"><i class="bi bi-linkedin"></i></a></div>
         </div>
       </div>
       <div class="col-sm-6 col-md-4 col-lg-3 reveal">
         <div class="member-card">
-          <img src="Ajim.png" alt="Ajim" class="member-avatar-img">
+          <div class="member-avatar bg-orange">NR</div>
           <div class="member-role-badge bg-orange">Vice President</div>
-          <div class="member-name">Ajim</div>
+          <div class="member-name">Nadia Rasyid</div>
           <p class="member-desc">Oversees strategic planning and ensures programs align with the club's core mission.</p>
           <div class="member-social"><a href="#"><i class="bi bi-instagram"></i></a><a href="#"><i class="bi bi-linkedin"></i></a></div>
         </div>
       </div>
       <div class="col-sm-6 col-md-4 col-lg-3 reveal">
         <div class="member-card">
-          <img src="haziq.png" alt="Haziq Kamal" class="member-avatar-img">
+          <div class="member-avatar bg-green">HK</div>
           <div class="member-role-badge bg-green">Secretary</div>
           <div class="member-name">Haziq Kamal</div>
           <p class="member-desc">Manages all administrative affairs, scheduling, and official communications.</p>
@@ -1409,36 +1078,36 @@
       </div>
       <div class="col-sm-6 col-md-4 col-lg-3 reveal">
         <div class="member-card">
-          <img src="Roy.png" alt="Roy" class="member-avatar-img">
+          <div class="member-avatar bg-pink">SY</div>
           <div class="member-role-badge bg-pink">Treasurer</div>
-          <div class="member-name">Roy</div>
+          <div class="member-name">Syafiqah Yusof</div>
           <p class="member-desc">Responsible for financial management, budgeting, and sponsorship coordination.</p>
           <div class="member-social"><a href="#"><i class="bi bi-instagram"></i></a><a href="#"><i class="bi bi-linkedin"></i></a></div>
         </div>
       </div>
       <div class="col-sm-6 col-md-4 col-lg-3 reveal">
         <div class="member-card">
-          <img src="Imran.png" alt="Imran" class="member-avatar-img">
+          <div class="member-avatar bg-red">IM</div>
           <div class="member-role-badge bg-red">Sports Director</div>
-          <div class="member-name">Imran</div>
+          <div class="member-name">Irfan Malik</div>
           <p class="member-desc">Curates all training programs and competition strategies across sport divisions.</p>
           <div class="member-social"><a href="#"><i class="bi bi-instagram"></i></a><a href="#"><i class="bi bi-linkedin"></i></a></div>
         </div>
       </div>
       <div class="col-sm-6 col-md-4 col-lg-3 reveal">
         <div class="member-card">
-          <img src="Razman.png" alt="Razman" class="member-avatar-img">
+          <div class="member-avatar bg-teal">LF</div>
           <div class="member-role-badge bg-teal">Events Head</div>
-          <div class="member-name">Razman</div>
+          <div class="member-name">Liyana Farid</div>
           <p class="member-desc">Plans and executes all club events, from tournaments to community outreach.</p>
           <div class="member-social"><a href="#"><i class="bi bi-instagram"></i></a><a href="#"><i class="bi bi-linkedin"></i></a></div>
         </div>
       </div>
       <div class="col-sm-6 col-md-4 col-lg-3 reveal">
         <div class="member-card">
-          <img src="Has.png" alt="Has" class="member-avatar-img">
+          <div class="member-avatar bg-purple">DH</div>
           <div class="member-role-badge bg-purple">Media & Comms</div>
-          <div class="member-name">Has</div>
+          <div class="member-name">Danish Hafiz</div>
           <p class="member-desc">Handles social media, branding, and all visual communications for the club.</p>
           <div class="member-social"><a href="#"><i class="bi bi-instagram"></i></a><a href="#"><i class="bi bi-linkedin"></i></a></div>
         </div>
@@ -1454,136 +1123,6 @@
       </div>
     </div>
   </div>
-</section> -->
-<section id="committee">
-  <div class="container">
-    <div class="text-center mb-5 reveal">
-      <div class="sec-label c-purple">Meet the Team</div>
-      <h2 class="sec-title">Committee <span class="c-blue">Members</span></h2>
-      <p class="sec-desc mx-auto mt-3">The dedicated individuals who keep AKASA running — organizing events, managing operations, and supporting every member.</p>
-    </div>
-
-    <div class="row g-4 justify-content-center">
-      <div class="col-sm-6 col-md-4 col-lg-3 reveal">
-        <div class="member-card">
-          <img src="luqman.png" alt="Luqman" class="member-avatar-img">
-          <div class="member-role-badge bg-blue">President</div>
-          <div class="member-name">Luqman</div>
-          <p class="member-desc">Leading the club since 2022 with a vision to grow AKASA into a state-level powerhouse.</p>
-          <div class="member-social">
-            <a href="#"><i class="bi bi-instagram"></i></a>
-            <a href="#"><i class="bi bi-linkedin"></i></a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-sm-6 col-md-4 col-lg-3 reveal">
-        <div class="member-card">
-          <img src="Ajim.png" alt="Ajim" class="member-avatar-img">
-          <div class="member-role-badge bg-orange">Vice President</div>
-          <div class="member-name">Ajim</div>
-          <p class="member-desc">Oversees strategic planning and ensures programs align with the club's core mission.</p>
-          <div class="member-social">
-            <a href="#"><i class="bi bi-instagram"></i></a>
-            <a href="#"><i class="bi bi-linkedin"></i></a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-sm-6 col-md-4 col-lg-3 reveal">
-        <div class="member-card">
-          <img src="Beeta.png" alt="Beeta" class="member-avatar-img">
-          <div class="member-role-badge bg-green">Secretary</div>
-          <div class="member-name">Beeta</div>
-          <p class="member-desc">Manages club records, meeting notes, and official communication.</p>
-          <div class="member-social">
-            <a href="#"><i class="bi bi-instagram"></i></a>
-            <a href="#"><i class="bi bi-linkedin"></i></a>
-          </div>
-        </div>
-      </div>
-     
-      <div class="col-sm-6 col-md-4 col-lg-3 reveal">
-        <div class="member-card">
-          <img src="Nuril.png" alt="Nuril" class="member-avatar-img">
-          <div class="member-role-badge bg-red">Assistant Secretary</div>
-          <div class="member-name">Nuril</div>
-          <p class="member-desc">Assists with documents, meeting records, and club administration.</p>
-          <div class="member-social">
-            <a href="#"><i class="bi bi-instagram"></i></a>
-            <a href="#"><i class="bi bi-linkedin"></i></a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-sm-6 col-md-4 col-lg-3 reveal">
-        <div class="member-card">
-          <img src="Roy.png" alt="Roy" class="member-avatar-img">
-          <div class="member-role-badge bg-pink">Treasurer</div>
-          <div class="member-name">Roy</div>
-          <p class="member-desc">Manages the club’s finances, expenses, and financial records.</p>
-          <div class="member-social">
-            <a href="#"><i class="bi bi-instagram"></i></a>
-            <a href="#"><i class="bi bi-linkedin"></i></a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-sm-6 col-md-4 col-lg-3 reveal">
-        <div class="member-card">
-          <img src="Imran.png" alt="Imran" class="member-avatar-img">
-          <div class="member-role-badge bg-teal">Assistant Treasurer</div>
-          <div class="member-name">Imran</div>
-          <p class="member-desc">Assists with payments, receipts, and financial reporting.</p>
-          <div class="member-social">
-            <a href="#"><i class="bi bi-instagram"></i></a>
-            <a href="#"><i class="bi bi-linkedin"></i></a>
-          </div>
-        </div>
-      </div>
-      
-      <div class="col-sm-6 col-md-4 col-lg-3 reveal">
-        <div class="member-card">
-          <img src="Razman.png" alt="Razman" class="member-avatar-img">
-          <div class="member-role-badge bg-purple">Committee Member</div>
-          <div class="member-name">Razman</div>
-          <p class="member-desc">Help plan, organize, and support club activities to ensure everything runs smoothly.</p>
-          <div class="member-social">
-            <a href="#"><i class="bi bi-instagram"></i></a>
-            <a href="#"><i class="bi bi-linkedin"></i></a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-sm-6 col-md-4 col-lg-3 reveal">
-        <div class="member-card">
-          <img src="Has.png" alt="Has" class="member-avatar-img">
-          <div class="member-role-badge bg-purple">Committee Member</div>
-          <div class="member-name">Has</div>
-          <p class="member-desc">Help plan, organize, and support club activities to ensure everything runs smoothly.</p>
-          <div class="member-social">
-            <a href="#"><i class="bi bi-instagram"></i></a>
-            <a href="#"><i class="bi bi-linkedin"></i></a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-sm-6 col-md-4 col-lg-3 reveal">
-        <div class="member-card">
-          <img src="Akmal.png" alt="Akmal" class="member-avatar-img">
-          <div class="member-role-badge bg-purple">Committee Member</div>
-          <div class="member-name">Akmal</div>
-          <p class="member-desc">Help plan, organize, and support club activities to ensure everything runs smoothly.</p>
-          <div class="member-social">
-            <a href="#"><i class="bi bi-instagram"></i></a>
-            <a href="#"><i class="bi bi-linkedin"></i></a>
-          </div>
-        </div>
-      </div>
-
-      
-    </div>
-  </div>
 </section>
 
 <!-- ── JOIN ── -->
@@ -1593,12 +1132,12 @@
       <div class="row align-items-center gy-4">
         <div class="col-lg-7" style="position:relative;z-index:1">
           <div class="sec-label">Ready to Start?</div>
-          <h2 class="sec-title">Become Part<br>Of AKASA</h2>
+          <h2 class="sec-title">Become Part<br>Of APEX</h2>
           <p class="mt-3 mb-0">Open registration is now available. Join a growing community of passionate athletes and take your game to the next level.</p>
-          <a href="mailto:join@AKASAsportclub.com" class="btn-white mt-4">Register Now</a>
+          <a href="mailto:join@apexsportclub.com" class="btn-white mt-4">Register Now</a>
         </div>
         <div class="col-lg-4 offset-lg-1" style="position:relative;z-index:1">
-          <div class="contact-item"><div class="contact-icon"><i class="bi bi-envelope-fill"></i></div> join@AKASAsportclub.com</div>
+          <div class="contact-item"><div class="contact-icon"><i class="bi bi-envelope-fill"></i></div> join@apexsportclub.com</div>
           <div class="contact-item"><div class="contact-icon"><i class="bi bi-telephone-fill"></i></div> +60 12-345 6789</div>
           <div class="contact-item"><div class="contact-icon"><i class="bi bi-geo-alt-fill"></i></div> Stadium Kompleks Sukan, Seremban</div>
           <div class="contact-item"><div class="contact-icon"><i class="bi bi-clock-fill"></i></div> Mon–Fri, 9am–5pm</div>
@@ -1613,7 +1152,7 @@
   <div class="container">
     <div class="row gy-4">
       <div class="col-lg-4">
-        <div class="footer-brand">AKASA<span>.</span></div>
+        <div class="footer-brand">APEX<span>.</span></div>
         <div class="footer-tagline">Est. 2018 · Seremban Sport Club</div>
         <div class="footer-social mt-3">
           <a href="#"><i class="bi bi-instagram"></i></a>
@@ -1641,13 +1180,13 @@
         <div class="footer-col-title">Stay Updated</div>
         <p style="font-size:0.8rem;color:rgba(255,255,255,0.35);line-height:1.7;">Get the latest news on events, training schedules, and club announcements.</p>
         <div class="d-flex gap-2 mt-3">
-          <input type="email" placeholder="your@email.com" class="footer-newsletter-input" style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);border-radius:50px;padding:0.6rem 1rem;font-size:0.8rem;color:#fff;outline:none;flex:1;"/>
+          <input type="email" placeholder="your@email.com" style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);border-radius:50px;padding:0.6rem 1rem;font-size:0.8rem;color:#fff;outline:none;flex:1;"/>
           <button style="background:var(--blue);border:none;border-radius:50px;padding:0.6rem 1.2rem;color:#fff;font-size:0.8rem;font-weight:600;cursor:pointer;">Subscribe</button>
         </div>
       </div>
     </div>
     <div class="footer-divider"></div>
-    <div class="footer-copy text-center">© 2025 AKASA Sport Club. All rights reserved.</div>
+    <div class="footer-copy text-center">© 2025 APEX Sport Club. All rights reserved.</div>
   </div>
 </footer>
 
@@ -1661,45 +1200,6 @@
     });
   }, { threshold: 0.08 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-  // Hero slideshow
-  const slides = document.querySelectorAll('.hero-slideshow .slide');
-  const dotsContainer = document.querySelector('.slideshow-dots');
-  let currentSlide = 0;
-  slides.forEach((_, i) => {
-    const dot = document.createElement('span');
-    dot.classList.add('slideshow-dot');
-    if (i === 0) dot.classList.add('active');
-    dot.addEventListener('click', () => goToSlide(i));
-    dotsContainer.appendChild(dot);
-  });
-  function goToSlide(n) {
-    slides[currentSlide].classList.remove('active');
-    dotsContainer.children[currentSlide].classList.remove('active');
-    currentSlide = (n + slides.length) % slides.length;
-    slides[currentSlide].classList.add('active');
-    dotsContainer.children[currentSlide].classList.add('active');
-  }
-  setInterval(() => goToSlide(currentSlide + 1), 3500);
-
-  // ── THEME TOGGLE ──────────────────────────────────────────────────────────
-  const toggleBtn = document.getElementById('themeToggle');
-  const themeIcon = document.getElementById('themeIcon');
-  const root      = document.documentElement;
-
-  function applyTheme(dark) {
-    root.setAttribute('data-theme', dark ? 'dark' : 'light');
-    themeIcon.className = dark ? 'bi bi-sun-fill' : 'bi bi-moon-fill';
-    localStorage.setItem('akasa-theme', dark ? 'dark' : 'light');
-  }
-
-  // Restore saved preference, fall back to dark theme by default
-  const saved      = localStorage.getItem('akasa-theme');
-  applyTheme(saved ? saved === 'dark' : true);
-
-  toggleBtn.addEventListener('click', () => {
-    applyTheme(root.getAttribute('data-theme') !== 'dark');
-  });
 </script>
 </body>
 </html>
