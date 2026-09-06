@@ -2,19 +2,12 @@
 <html lang="en">
 
 <head>
-
   <meta charset="UTF-8">
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Gallery — AKASA Sports Club</title>
 
-  <link
-    rel="icon"
-    type="image/png"
-    sizes="5x5"
-    href="assets/logo.png"
-  >
+  <link rel="icon" type="image/png" sizes="5x5" href="assets/logo.png">
 
   <!-- Bootstrap -->
   <link
@@ -34,7 +27,6 @@
     rel="stylesheet"
   >
 
-
   <style>
 
     :root {
@@ -49,7 +41,6 @@
       --footer-bg: #111;
     }
 
-
     html[data-theme="dark"] {
       --bg: #0f0f0f;
       --ink: #f0f0f0;
@@ -62,7 +53,6 @@
       --footer-bg: #0a0a0a;
     }
 
-
     *,
     *::before,
     *::after {
@@ -71,11 +61,9 @@
       padding: 0;
     }
 
-
     html {
       scroll-behavior: smooth;
     }
-
 
     body {
       background: var(--bg);
@@ -83,7 +71,6 @@
       font-family: 'Plus Jakarta Sans', sans-serif;
       overflow-x: hidden;
     }
-
 
     /* =========================
        NAVBAR
@@ -99,7 +86,6 @@
       z-index: 999;
     }
 
-
     .navbar-brand {
       font-family: 'Bebas Neue', sans-serif;
       font-size: 2rem;
@@ -107,11 +93,9 @@
       color: var(--ink) !important;
     }
 
-
     .navbar-brand span {
       color: var(--blue);
     }
-
 
     .nav-link {
       color: var(--muted) !important;
@@ -122,13 +106,11 @@
       padding: .4rem .9rem !important;
     }
 
-
     .nav-link:hover,
     .nav-link.active-link {
       color: var(--ink) !important;
       font-weight: 600;
     }
-
 
     .btn-nav {
       background: var(--blue);
@@ -138,7 +120,6 @@
       font-size: .78rem !important;
       font-weight: 600 !important;
     }
-
 
     /* =========================
        THEME TOGGLE
@@ -156,11 +137,15 @@
       background: var(--bg);
       color: var(--ink);
       cursor: pointer;
+
       display: flex;
       align-items: center;
       justify-content: center;
+
       font-size: 1.1rem;
+
       box-shadow: 0 4px 18px rgba(0,0,0,.15);
+
       transition:
         transform .2s,
         box-shadow .2s,
@@ -168,17 +153,14 @@
         border-color .35s;
     }
 
-
     .theme-toggle:hover {
       transform: rotate(20deg) scale(1.1);
       box-shadow: 0 6px 22px rgba(0,0,0,.22);
     }
 
-
     html[data-theme="dark"] .theme-toggle {
       border-color: rgba(255,255,255,.14);
     }
-
 
     /* =========================
        HERO
@@ -191,7 +173,6 @@
       overflow: hidden;
     }
 
-
     .ph-blob {
       position: absolute;
       border-radius: 50%;
@@ -199,7 +180,6 @@
       opacity: .16;
       pointer-events: none;
     }
-
 
     .pb1 {
       width: 500px;
@@ -209,7 +189,6 @@
       right: -100px;
     }
 
-
     .pb2 {
       width: 300px;
       height: 300px;
@@ -217,7 +196,6 @@
       bottom: -80px;
       left: -60px;
     }
-
 
     .pb3 {
       width: 220px;
@@ -227,25 +205,24 @@
       left: 38%;
     }
 
-
     .breadcrumb-row {
       display: flex;
       align-items: center;
       gap: .5rem;
+
       font-size: .72rem;
       font-weight: 600;
       letter-spacing: 1px;
       text-transform: uppercase;
+
       color: var(--muted);
       margin-bottom: 1.5rem;
     }
-
 
     .breadcrumb-row a {
       color: var(--blue);
       text-decoration: none;
     }
-
 
     .page-title {
       font-family: 'Bebas Neue', sans-serif;
@@ -254,11 +231,9 @@
       letter-spacing: -1px;
     }
 
-
     .page-title .c-purple {
       color: var(--purple);
     }
-
 
     .hero-desc {
       font-size: 1rem;
@@ -268,7 +243,6 @@
       margin-top: 1.2rem;
     }
 
-
     .stat-pills {
       display: flex;
       flex-wrap: wrap;
@@ -276,26 +250,27 @@
       margin-top: 2rem;
     }
 
-
     .stat-pill {
       display: inline-flex;
       align-items: center;
       gap: .45rem;
+
       background: var(--card-bg);
       border: 1.5px solid var(--card-border);
       border-radius: 50px;
+
       padding: .4rem 1rem;
+
       font-size: .72rem;
       font-weight: 600;
+
       box-shadow: 0 2px 10px rgba(0,0,0,.05);
     }
-
 
     .stat-pill b {
       font-family: 'Bebas Neue', sans-serif;
       font-size: 1.1rem;
     }
-
 
     /* =========================
        SCROLL DATE INDICATOR
@@ -305,34 +280,44 @@
       position: fixed;
       top: 50%;
       right: 24px;
+
       z-index: 900;
+
       display: flex;
       align-items: center;
       gap: .45rem;
+
       padding: .55rem .9rem;
+
       border-radius: 999px;
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
+
+      background: rgba(255,255,255,.92);
+      border: 1px solid rgba(0,0,0,.08);
+
       box-shadow: 0 6px 22px rgba(0,0,0,.08);
+
       backdrop-filter: blur(12px);
+
       opacity: 0;
+
       transform:
         translateY(-50%)
         translateX(10px);
+
       pointer-events: none;
+
       transition:
         opacity .2s ease,
         transform .2s ease;
     }
 
-
     .scroll-date-indicator.visible {
       opacity: 1;
+
       transform:
         translateY(-50%)
         translateX(0);
     }
-
 
     .scroll-date-indicator #scrollMonth {
       font-family: 'Bebas Neue', sans-serif;
@@ -341,7 +326,6 @@
       color: var(--ink);
     }
 
-
     .scroll-date-indicator #scrollYear {
       font-size: .72rem;
       font-weight: 700;
@@ -349,26 +333,11 @@
       letter-spacing: 1px;
     }
 
-
-    @media(max-width:800px) {
-
-      .scroll-date-indicator {
-        right: 12px;
-        padding: .45rem .75rem;
-      }
-
-
-      .scroll-date-indicator #scrollMonth {
-        font-size: 1rem;
-      }
-
-
-      .scroll-date-indicator #scrollYear {
-        font-size: .65rem;
-      }
-
+    html[data-theme="dark"] .scroll-date-indicator {
+      background: rgba(30,30,30,.95);
+      border-color: rgba(255,255,255,.12);
+      box-shadow: 0 6px 22px rgba(0,0,0,.3);
     }
-
 
     /* =========================
        GALLERY
@@ -378,48 +347,53 @@
       padding: 2.5rem 0 4rem;
     }
 
-
     .photo-grid {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 1.15rem;
     }
 
-
     .photo-card {
       position: relative;
+
       aspect-ratio: 4/3;
+
       overflow: hidden;
+
       border-radius: 16px;
+
       background: var(--card-bg);
+
       cursor: pointer;
+
       border: 1.5px solid var(--card-border);
+
       box-shadow: 0 4px 18px rgba(0,0,0,.05);
+
       transition:
         transform .3s ease,
         box-shadow .3s ease;
     }
-
 
     .photo-card:hover {
       transform: translateY(-5px);
       box-shadow: 0 15px 35px rgba(0,0,0,.12);
     }
 
-
     .photo-card img {
       width: 100%;
       height: 100%;
+
       object-fit: cover;
+
       display: block;
+
       transition: transform .45s ease;
     }
-
 
     .photo-card:hover img {
       transform: scale(1.06);
     }
-
 
     /* =========================
        IMAGE ERROR
@@ -428,104 +402,27 @@
     .image-error {
       width: 100%;
       height: 100%;
+
       display: flex;
       align-items: center;
       justify-content: center;
+
       flex-direction: column;
+
       gap: .5rem;
+
       color: var(--muted);
+
       font-size: .75rem;
+
       text-align: center;
+
       padding: 1rem;
     }
-
 
     .image-error i {
       font-size: 2rem;
     }
-
-
-    /* =========================
-       VIDEO CARD
-    ========================= */
-
-    .photo-card video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform .45s ease;
-    }
-
-
-    .photo-card:hover video {
-      transform: scale(1.06);
-    }
-
-
-    .video-badge {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      width: 34px;
-      height: 34px;
-      border-radius: 50%;
-      background: rgba(0,0,0,.55);
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: .9rem;
-      pointer-events: none;
-      z-index: 1;
-    }
-
-
-    /* =========================
-       LOADING
-    ========================= */
-
-    .gallery-loading {
-      min-height: 250px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      gap: 1rem;
-      color: var(--muted);
-      font-size: .8rem;
-    }
-
-
-    .gallery-loading .spinner-border {
-      width: 2rem;
-      height: 2rem;
-    }
-
-
-    /* =========================
-       EMPTY / ERROR STATE
-    ========================= */
-
-    .gallery-message {
-      grid-column: 1 / -1;
-      min-height: 250px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      gap: .6rem;
-      color: var(--muted);
-      text-align: center;
-      padding: 2rem;
-    }
-
-
-    .gallery-message i {
-      font-size: 2.5rem;
-      opacity: .5;
-    }
-
 
     /* =========================
        LIGHTBOX
@@ -534,59 +431,73 @@
     .gallery-lightbox {
       position: fixed;
       inset: 0;
+
       background: rgba(0,0,0,.96);
+
       z-index: 9999;
+
       opacity: 0;
+
       pointer-events: none;
+
       transition: opacity .25s ease;
+
       display: flex;
+
       align-items: center;
       justify-content: center;
     }
-
 
     .gallery-lightbox.open {
       opacity: 1;
       pointer-events: auto;
     }
 
-
     .lightbox-image {
       max-width: calc(100vw - 140px);
       max-height: calc(100vh - 100px);
+
       width: auto;
       height: auto;
+
       object-fit: contain;
+
       display: block;
+
       transition: opacity .2s ease;
     }
-
 
     .lightbox-close,
     .lightbox-nav {
       position: absolute;
+
       width: 48px;
       height: 48px;
+
       border: 0;
       border-radius: 50%;
+
       background: rgba(255,255,255,.12);
+
       color: #fff;
+
       display: flex;
       align-items: center;
       justify-content: center;
+
       cursor: pointer;
+
       transition:
         background .2s ease,
         transform .2s ease;
+
       z-index: 2;
     }
-
 
     .lightbox-close:hover,
     .lightbox-nav:hover {
       background: rgba(255,255,255,.22);
     }
-
 
     .lightbox-close {
       top: 20px;
@@ -594,35 +505,34 @@
       font-size: 1.15rem;
     }
 
-
     .lightbox-nav {
       top: 50%;
       transform: translateY(-50%);
       font-size: 1.2rem;
     }
 
-
     .lightbox-nav.prev {
       left: 22px;
     }
-
 
     .lightbox-nav.next {
       right: 22px;
     }
 
-
     .lightbox-counter {
       position: absolute;
+
       top: 25px;
       left: 50%;
+
       transform: translateX(-50%);
+
       color: rgba(255,255,255,.7);
+
       font-size: .72rem;
       font-weight: 600;
       letter-spacing: 1px;
     }
-
 
     /* =========================
        FOOTER
@@ -631,10 +541,11 @@
     footer {
       background: var(--footer-bg);
       color: #fff;
+
       padding: 3rem 0 2rem;
+
       margin-top: 2rem;
     }
-
 
     .footer-brand {
       font-family: 'Bebas Neue', sans-serif;
@@ -642,28 +553,29 @@
       letter-spacing: 3px;
     }
 
-
     .footer-brand span {
       color: var(--blue);
     }
 
-
     .footer-link {
       color: rgba(255,255,255,.4);
+
       text-decoration: none;
+
       font-size: .78rem;
       font-weight: 500;
       letter-spacing: 1.5px;
+
       text-transform: uppercase;
+
       display: inline-block;
+
       margin: 0 .75rem;
     }
-
 
     .footer-link:hover {
       color: #fff;
     }
-
 
     .footer-copy {
       font-size: .72rem;
@@ -671,20 +583,24 @@
       margin-top: 1.5rem;
     }
 
-
     .footer-social a {
       width: 34px;
       height: 34px;
+
       border-radius: 50%;
+
       border: 1px solid rgba(255,255,255,.1);
+
       display: inline-flex;
       align-items: center;
       justify-content: center;
+
       color: rgba(255,255,255,.4);
+
       margin: 0 .25rem;
+
       text-decoration: none;
     }
-
 
     .footer-social a:hover {
       background: var(--blue);
@@ -692,12 +608,10 @@
       border-color: var(--blue);
     }
 
-
     .footer-divider {
       border-top: 1px solid rgba(255,255,255,.07);
       margin: 2rem 0 1.5rem;
     }
-
 
     /* =========================
        RESPONSIVE
@@ -711,31 +625,39 @@
 
     }
 
-
     @media(max-width:800px) {
+
+      .scroll-date-indicator {
+        right: 12px;
+        padding: .45rem .75rem;
+      }
+
+      .scroll-date-indicator #scrollMonth {
+        font-size: 1rem;
+      }
+
+      .scroll-date-indicator #scrollYear {
+        font-size: .65rem;
+      }
 
       .photo-grid {
         grid-template-columns: repeat(2, minmax(0,1fr));
         gap: .8rem;
       }
 
-
       .lightbox-image {
         max-width: calc(100vw - 80px);
         max-height: calc(100vh - 80px);
       }
-
 
       .lightbox-nav {
         width: 40px;
         height: 40px;
       }
 
-
       .lightbox-nav.prev {
         left: 10px;
       }
-
 
       .lightbox-nav.next {
         right: 10px;
@@ -743,29 +665,24 @@
 
     }
 
-
     @media(max-width:480px) {
 
       .photo-grid {
         grid-template-columns: 1fr;
       }
 
-
       .photo-card {
         aspect-ratio: 16/10;
       }
-
 
       .page-hero {
         padding: 3.5rem 0 2.5rem;
       }
 
-
       .lightbox-close {
         top: 12px;
         right: 12px;
       }
-
 
       .lightbox-counter {
         top: 18px;
@@ -774,12 +691,10 @@
     }
 
   </style>
-
 </head>
 
 
 <body>
-
 
   <!-- =========================
        NAVBAR
@@ -793,18 +708,14 @@
         AKASA<span>.</span>
       </a>
 
-
       <button
         class="navbar-toggler"
         type="button"
         data-bs-toggle="collapse"
         data-bs-target="#navMenu"
       >
-
         <span class="navbar-toggler-icon"></span>
-
       </button>
-
 
       <div
         class="collapse navbar-collapse justify-content-end"
@@ -819,13 +730,11 @@
             </a>
           </li>
 
-
           <li class="nav-item">
             <a class="nav-link" href="index.html#about">
               About
             </a>
           </li>
-
 
           <li class="nav-item">
             <a class="nav-link" href="index.html#activities">
@@ -833,36 +742,22 @@
             </a>
           </li>
 
-
           <li class="nav-item">
-            <a
-              class="nav-link active-link"
-              href="gallery.html"
-            >
+            <a class="nav-link active-link" href="gallery.html">
               Gallery
             </a>
           </li>
 
-
           <li class="nav-item">
-            <a
-              class="nav-link"
-              href="index.html#committee"
-            >
+            <a class="nav-link" href="index.html#committee">
               Committee
             </a>
           </li>
 
-
           <li class="nav-item ms-lg-2">
-
-            <a
-              class="nav-link btn-nav"
-              href="index.html#join"
-            >
+            <a class="nav-link btn-nav" href="index.html#join">
               Join Us
             </a>
-
           </li>
 
         </ul>
@@ -874,7 +769,6 @@
   </nav>
 
 
-
   <!-- =========================
        HERO
   ========================= -->
@@ -884,7 +778,6 @@
     <div class="ph-blob pb1"></div>
     <div class="ph-blob pb2"></div>
     <div class="ph-blob pb3"></div>
-
 
     <div class="container">
 
@@ -904,20 +797,15 @@
 
 
       <h1 class="page-title">
-
         PHOTO<br>
-
         <span class="c-purple">
           GALLERY
         </span>
-
       </h1>
 
 
       <p class="hero-desc">
-
         Relive the action, the victories, and the community spirit.
-
       </p>
 
 
@@ -940,13 +828,11 @@
         <div class="stat-pill">
 
           <i
-            class="bi bi-camera-video"
+            class="bi bi-sort-down"
             style="color:var(--blue)"
           ></i>
 
-          <b id="videoCount">0</b>
-
-          Videos
+          Latest First
 
         </div>
 
@@ -955,7 +841,6 @@
     </div>
 
   </section>
-
 
 
   <!-- =========================
@@ -969,7 +854,7 @@
   >
 
     <span id="scrollMonth">
-      January
+      March
     </span>
 
     <span id="scrollYear">
@@ -977,7 +862,6 @@
     </span>
 
   </div>
-
 
 
   <!-- =========================
@@ -991,30 +875,11 @@
       <div
         id="photoGrid"
         class="photo-grid"
-      >
-
-        <div
-          class="gallery-loading"
-          id="galleryLoading"
-        >
-
-          <div
-            class="spinner-border"
-            role="status"
-          ></div>
-
-          <span>
-            Loading gallery...
-          </span>
-
-        </div>
-
-      </div>
+      ></div>
 
     </div>
 
   </main>
-
 
 
   <!-- =========================
@@ -1047,20 +912,16 @@
       id="lightboxClose"
       aria-label="Close"
     >
-
       <i class="bi bi-x-lg"></i>
-
     </button>
 
 
     <button
       class="lightbox-nav prev"
       id="lightboxPrev"
-      aria-label="Previous"
+      aria-label="Previous photo"
     >
-
       <i class="bi bi-chevron-left"></i>
-
     </button>
 
 
@@ -1072,29 +933,15 @@
     >
 
 
-    <video
-      class="lightbox-image"
-      id="lightboxVideo"
-      controls
-      autoplay
-      muted
-      playsinline
-      style="display:none"
-    ></video>
-
-
     <button
       class="lightbox-nav next"
       id="lightboxNext"
-      aria-label="Next"
+      aria-label="Next photo"
     >
-
       <i class="bi bi-chevron-right"></i>
-
     </button>
 
   </div>
-
 
 
   <!-- =========================
@@ -1106,9 +953,7 @@
     <div class="container text-center">
 
       <div class="footer-brand mb-2">
-
         AKASA<span>.</span>
-
       </div>
 
 
@@ -1121,14 +966,12 @@
           About
         </a>
 
-
         <a
           href="index.html#activities"
           class="footer-link"
         >
           Activities
         </a>
-
 
         <a
           href="events.html"
@@ -1137,7 +980,6 @@
           Events
         </a>
 
-
         <a
           href="gallery.html"
           class="footer-link"
@@ -1145,14 +987,12 @@
           Gallery
         </a>
 
-
         <a
           href="index.html#committee"
           class="footer-link"
         >
           Committee
         </a>
-
 
         <a
           href="index.html#join"
@@ -1185,15 +1025,12 @@
 
 
       <div class="footer-copy">
-
         © 2025 AKASA Sports Club. All rights reserved.
-
       </div>
 
     </div>
 
   </footer>
-
 
 
   <!-- =========================
@@ -1214,17 +1051,9 @@
   </button>
 
 
-
   <!-- Bootstrap JS -->
 
-  <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-  ></script>
-
-
-  <!-- Gallery file list (script tag avoids fetch() CORS block on file:// protocol) -->
-
-  <script src="assets/gallery/gallery-data.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 
   <script>
@@ -1292,26 +1121,171 @@
     })();
 
 
-
     /* ============================================================
-       GALLERY
-       
-       Files are automatically loaded from gallery.json.
-       
-       You DO NOT need to manually list filenames here.
+       GOOGLE DRIVE IMAGE HELPER
+    ============================================================
+
+       IMPORTANT:
+
+       Google Drive file must be:
+
+       Share
+       → General access
+       → Anyone with the link
+       → Viewer
+
+       We use the thumbnail URL because it works
+       with the Drive image you tested.
     ============================================================ */
 
-    const GALLERY_FOLDER =
-      "assets/gallery/";
+    function googleDriveImage(fileId) {
 
-    const VIDEO_EXT =
-      /\.(mp4|mov|webm)$/i;
+      return `https://drive.google.com/thumbnail?id=${fileId}&sz=w1600`;
+
+    }
 
 
-    let allPhotos = [];
+    /* ============================================================
+       PHOTO DATA
+    ============================================================ */
 
-    let currentIndex = 0;
+    const albums = [
+  {
+    title: "AKASA Cup Futsal Tournament 2025",
+    date: "15 March 2025",
 
+    photos: [
+      ["15 Mar 2025 · 8:00 AM", "1ci1OqwN0ms2Dt93x4F0SIwVHAXR95QL-"],
+      ["15 Mar 2025 · 9:15 AM", "1VtQXvH9tg3gIThgxgyLBsfBYYhjTmtLG"],
+      ["15 Mar 2025 · 12:00 PM", "1_M-t6MdS3Vx0WPYcKdOOUgqS273EvdYO"],
+      ["15 Mar 2025 · 3:00 PM", "1Ru9WoIXhOD0_bxl9G3k0UbjKYCucG_BX"],
+      ["15 Mar 2025 · 5:20 PM", "1g7ii7v8LEontvbVl_gw4dZanw_NpboVG"]
+    ]
+  }
+];
+
+
+    /* ============================================================
+       FLATTEN ALL PHOTOS
+    ============================================================ */
+
+    const allPhotos =
+      albums.flatMap(
+        album =>
+          album.photos.map(
+            photo => ({
+              src: googleDriveImage(photo[1]),
+              date: photo[0]
+            })
+          )
+      );
+
+
+    /* ============================================================
+       DATE PARSER
+    ============================================================ */
+
+    function parsePhotoDate(value) {
+
+      if (!value) {
+        return new Date(0);
+      }
+
+
+      const match =
+        value.match(
+          /^(\d{1,2})\s+([A-Za-z]{3})\s+(\d{4})(?:\s+·\s+(\d{1,2}):(\d{2})\s*(AM|PM))?/
+        );
+
+
+      if (!match) {
+        return new Date(0);
+      }
+
+
+      const [
+        ,
+        day,
+        monthName,
+        year,
+        hour = "0",
+        minute = "0",
+        ampm
+      ] = match;
+
+
+      const months = {
+
+        Jan: 0,
+        Feb: 1,
+        Mar: 2,
+        Apr: 3,
+        May: 4,
+        Jun: 5,
+        Jul: 6,
+        Aug: 7,
+        Sep: 8,
+        Oct: 9,
+        Nov: 10,
+        Dec: 11
+
+      };
+
+
+      const month =
+        months[monthName];
+
+
+      if (month === undefined) {
+        return new Date(0);
+      }
+
+
+      let hours =
+        Number(hour);
+
+
+      if (
+        ampm === "PM" &&
+        hours !== 12
+      ) {
+
+        hours += 12;
+
+      }
+
+
+      if (
+        ampm === "AM" &&
+        hours === 12
+      ) {
+
+        hours = 0;
+
+      }
+
+
+      return new Date(
+        Number(year),
+        month,
+        Number(day),
+        hours,
+        Number(minute),
+        0
+      );
+
+    }
+
+
+    /* ============================================================
+       SORT LATEST → OLDEST
+    ============================================================ */
+
+    allPhotos.sort(
+      (a, b) =>
+        parsePhotoDate(b.date) -
+        parsePhotoDate(a.date)
+    );
 
 
     /* ============================================================
@@ -1324,21 +1298,9 @@
       );
 
 
-    const galleryLoading =
-      document.getElementById(
-        "galleryLoading"
-      );
-
-
     const photoCount =
       document.getElementById(
         "photoCount"
-      );
-
-
-    const videoCount =
-      document.getElementById(
-        "videoCount"
       );
 
 
@@ -1360,438 +1322,233 @@
       );
 
 
-
-    /* ============================================================
-       LOAD GALLERY FILE LIST
-    ============================================================ */
-
-    async function loadGalleryFiles() {
-
-      try {
-
-        const galleryFiles =
-          window.GALLERY_FILES;
-
-
-        if (!Array.isArray(galleryFiles)) {
-
-          throw new Error(
-            "assets/gallery/gallery-data.js did not define GALLERY_FILES"
-          );
-
-        }
-
-
-        allPhotos =
-          galleryFiles.map(entry => ({
-
-            src:
-              GALLERY_FOLDER + entry.file,
-
-            type:
-              VIDEO_EXT.test(entry.file)
-                ? "video"
-                : "image",
-
-            date:
-              entry.date
-                ? new Date(entry.date)
-                : new Date(0)
-
-          }));
-
-
-        allPhotos.sort(
-          (a, b) =>
-            b.date - a.date
-        );
-
-
-        renderGallery();
-
-
-      } catch (error) {
-
-        console.error(
-          "Failed to load gallery:",
-          error
-        );
-
-
-        galleryLoading?.remove();
-
-
-        photoGrid.innerHTML = `
-
-          <div class="gallery-message">
-
-            <i class="bi bi-images"></i>
-
-            <strong>
-              Gallery could not be loaded
-            </strong>
-
-            <span>
-              Please try again later.
-            </span>
-
-          </div>
-
-        `;
-
-      }
-
-    }
-
+    photoCount.textContent =
+      allPhotos.length;
 
 
     /* ============================================================
-       RENDER GALLERY
+       IMAGE URL TEST
     ============================================================ */
 
-    function renderGallery() {
-
-      photoGrid.innerHTML = "";
-
-
-      /* Count */
-
-      photoCount.textContent =
-        allPhotos.filter(
-          photo =>
-            photo.type === "image"
-        ).length;
+    console.log(
+      "AKASA Gallery photos:",
+      allPhotos
+    );
 
 
-      videoCount.textContent =
-        allPhotos.filter(
-          photo =>
-            photo.type === "video"
-        ).length;
+    /* ============================================================
+       RENDER PHOTO GRID
+    ============================================================ */
 
+    allPhotos.forEach(
+      (photo, index) => {
 
-      /* Empty */
-
-      if (allPhotos.length === 0) {
-
-        photoGrid.innerHTML = `
-
-          <div class="gallery-message">
-
-            <i class="bi bi-images"></i>
-
-            <strong>
-              No gallery media yet
-            </strong>
-
-            <span>
-              Photos and videos will appear here.
-            </span>
-
-          </div>
-
-        `;
-
-        return;
-
-      }
-
-
-      /* Render */
-
-      allPhotos.forEach(
-        (photo, index) => {
-
-          const card =
-            document.createElement("div");
-
-
-          card.className =
-            "photo-card";
-
-
-          card.dataset.photoIndex =
-            index;
-
-
-          card.tabIndex = 0;
-
-
-          card.setAttribute(
-            "role",
-            "button"
+        const card =
+          document.createElement(
+            "div"
           );
 
 
-          card.setAttribute(
-            "aria-label",
-            photo.type === "video"
-              ? "Open gallery video"
-              : "Open gallery photo"
+        card.className =
+          "photo-card";
+
+
+        card.dataset.photoIndex =
+          index;
+
+
+        card.dataset.photoDate =
+          parsePhotoDate(
+            photo.date
+          ).getTime();
+
+
+        card.tabIndex = 0;
+
+
+        card.setAttribute(
+          "role",
+          "button"
+        );
+
+
+        card.setAttribute(
+          "aria-label",
+          "Open gallery photo"
+        );
+
+
+        const image =
+          document.createElement(
+            "img"
           );
 
 
-
-          /* =========================
-             VIDEO
-          ========================= */
-
-          if (
-            photo.type === "video"
-          ) {
-
-            const badge =
-              document.createElement("div");
+        /*
+         * Set the exact URL here.
+         */
+        image.src =
+          photo.src;
 
 
-            badge.className =
-              "video-badge";
+        image.alt =
+          "AKASA Sports Club gallery photo";
 
 
-            badge.innerHTML =
-              '<i class="bi bi-play-fill"></i>';
+        /*
+         * First 8 images load immediately.
+         */
+        image.loading =
+          index < 8
+            ? "eager"
+            : "lazy";
+
+
+        image.decoding =
+          "async";
+
+
+        /*
+         * Google Drive debugging.
+         */
+        image.onload =
+          function () {
+
+            console.log(
+              "Image loaded successfully:",
+              photo.src
+            );
+
+          };
+
+
+        image.onerror =
+          function () {
+
+            console.error(
+              "FAILED TO LOAD IMAGE:",
+              photo.src
+            );
+
+
+            const error =
+              document.createElement(
+                "div"
+              );
+
+
+            error.className =
+              "image-error";
+
+
+            error.innerHTML = `
+
+              <i class="bi bi-image"></i>
+
+              <span>
+                Image could not be loaded
+              </span>
+
+            `;
+
+
+            /*
+             * Show the failed URL
+             * in the browser console.
+             */
+            console.error(
+              "Photo:",
+              photo
+            );
+
+
+            this.remove();
 
 
             card.appendChild(
-              badge
+              error
             );
 
+          };
 
-            const video =
-              document.createElement("video");
 
+        card.appendChild(
+          image
+        );
 
-            video.src =
-              photo.src;
 
+        /* =========================
+           CLICK
+        ========================= */
 
-            video.muted = true;
+        card.addEventListener(
+          "click",
+          () =>
+            openLightbox(index)
+        );
 
-            video.loop = true;
 
-            video.autoplay = true;
+        /* =========================
+           KEYBOARD
+        ========================= */
 
-            video.playsInline = true;
+        card.addEventListener(
+          "keydown",
+          event => {
 
-            video.preload = "metadata";
+            if (
+              event.key === "Enter" ||
+              event.key === " "
+            ) {
 
-
-            video.onerror =
-              function () {
-
-                console.error(
-                  "FAILED TO LOAD VIDEO:",
-                  photo.src
-                );
-
-
-                const error =
-                  document.createElement(
-                    "div"
-                  );
-
-
-                error.className =
-                  "image-error";
-
-
-                error.innerHTML = `
-
-                  <i class="bi bi-camera-video-off"></i>
-
-                  <span>
-                    Video could not be loaded
-                  </span>
-
-                `;
-
-
-                this.remove();
-
-
-                card.appendChild(
-                  error
-                );
-
-              };
-
-
-            video.addEventListener(
-              "loadeddata",
-              () => {
-
-                video.play()
-                  .catch(() => {});
-
-              }
-            );
-
-
-            card.appendChild(
-              video
-            );
-
-          }
-
-
-
-          /* =========================
-             IMAGE
-          ========================= */
-
-          else {
-
-            const image =
-              document.createElement("img");
-
-
-            image.src =
-              photo.src;
-
-
-            image.alt =
-              "AKASA Sports Club gallery photo";
-
-
-            image.loading =
-              index < 8
-                ? "eager"
-                : "lazy";
-
-
-            image.decoding =
-              "async";
-
-
-            image.onerror =
-              function () {
-
-                console.error(
-                  "FAILED TO LOAD IMAGE:",
-                  photo.src
-                );
-
-
-                const error =
-                  document.createElement(
-                    "div"
-                  );
-
-
-                error.className =
-                  "image-error";
-
-
-                error.innerHTML = `
-
-                  <i class="bi bi-image"></i>
-
-                  <span>
-                    Image could not be loaded
-                  </span>
-
-                `;
-
-
-                this.remove();
-
-
-                card.appendChild(
-                  error
-                );
-
-              };
-
-
-            card.appendChild(
-              image
-            );
-
-          }
-
-
-
-          /* =========================
-             CLICK
-          ========================= */
-
-          card.addEventListener(
-            "click",
-            () => {
+              event.preventDefault();
 
               openLightbox(index);
 
             }
-          );
 
-
-
-          /* =========================
-             KEYBOARD
-          ========================= */
-
-          card.addEventListener(
-            "keydown",
-            event => {
-
-              if (
-                event.key === "Enter" ||
-                event.key === " "
-              ) {
-
-                event.preventDefault();
-
-                openLightbox(index);
-
-              }
-
-            }
-          );
-
-
-          photoGrid.appendChild(
-            card
-          );
-
-        }
-      );
-
-
-      /* Update lightbox count */
-
-      lightboxTotal.textContent =
-        allPhotos.length;
-
-
-      /* Refresh scroll-date tracking for the newly rendered cards */
-
-      photoCards =
-        Array.from(
-          document.querySelectorAll(
-            ".photo-card"
-          )
+          }
         );
 
 
-      updateScrollDate();
+        photoGrid.appendChild(
+          card
+        );
 
-    }
-
+      }
+    );
 
 
     /* ============================================================
-       SCROLL DATE INDICATOR
+       PHOTO CARDS
     ============================================================ */
 
-    let photoCards = [];
+    const photoCards =
+      Array.from(
+        document.querySelectorAll(
+          ".photo-card"
+        )
+      );
 
 
-    function getPhotoMonthYear(photo) {
+    /* ============================================================
+       MONTH / YEAR
+    ============================================================ */
+
+    function getPhotoMonthYear(
+      photo
+    ) {
+
+      const date =
+        parsePhotoDate(
+          photo.date
+        );
+
 
       return {
 
         month:
-          photo.date.toLocaleDateString(
+          date.toLocaleDateString(
             "en-US",
             {
               month: "long"
@@ -1799,7 +1556,7 @@
           ),
 
         year:
-          photo.date.getFullYear()
+          date.getFullYear()
 
       };
 
@@ -1808,8 +1565,12 @@
 
     function updateScrollDate() {
 
-      if (!photoCards.length) {
+      if (
+        !photoCards.length
+      ) {
+
         return;
+
       }
 
 
@@ -1848,7 +1609,9 @@
 
 
       const activePhoto =
-        allPhotos[activeIndex];
+        allPhotos[
+          activeIndex
+        ];
 
 
       if (!activePhoto) {
@@ -1870,7 +1633,9 @@
         date.year;
 
 
-      if (window.scrollY > 250) {
+      if (
+        window.scrollY > 250
+      ) {
 
         scrollDateIndicator
           .classList
@@ -1927,9 +1692,11 @@
     );
 
 
+    updateScrollDate();
+
 
     /* ============================================================
-       LIGHTBOX DOM
+       LIGHTBOX
     ============================================================ */
 
     const lightbox =
@@ -1941,12 +1708,6 @@
     const lightboxImage =
       document.getElementById(
         "lightboxImage"
-      );
-
-
-    const lightboxVideo =
-      document.getElementById(
-        "lightboxVideo"
       );
 
 
@@ -1962,17 +1723,21 @@
       );
 
 
+    let currentIndex =
+      0;
 
-    /* ============================================================
+
+    lightboxTotal.textContent =
+      allPhotos.length;
+
+
+    /* =========================
        OPEN
-    ============================================================ */
+    ========================= */
 
-    function openLightbox(index) {
-
-      if (!allPhotos.length) {
-        return;
-      }
-
+    function openLightbox(
+      index
+    ) {
 
       currentIndex =
         index;
@@ -1998,10 +1763,9 @@
     }
 
 
-
-    /* ============================================================
+    /* =========================
        CLOSE
-    ============================================================ */
+    ========================= */
 
     function closeLightbox() {
 
@@ -2016,24 +1780,15 @@
       );
 
 
-      lightboxVideo.pause();
-
-
-      lightboxVideo.removeAttribute(
-        "src"
-      );
-
-
       document.body.style.overflow =
         "";
 
     }
 
 
-
-    /* ============================================================
-       UPDATE LIGHTBOX
-    ============================================================ */
+    /* =========================
+       UPDATE
+    ========================= */
 
     function updateLightbox() {
 
@@ -2048,112 +1803,64 @@
       }
 
 
-      lightboxVideo.pause();
+      lightboxImage.style.opacity =
+        "0";
 
 
+      /*
+       * Use the exact same URL
+       * that the gallery card uses.
+       */
 
-      /* VIDEO */
+      setTimeout(
+        () => {
 
-      if (
-        photo.type === "video"
-      ) {
-
-        lightboxImage.style.display =
-          "none";
-
-
-        lightboxVideo.style.display =
-          "block";
+          lightboxImage.src =
+            photo.src;
 
 
-        lightboxVideo.src =
-          photo.src;
+          lightboxImage.alt =
+            "AKASA Sports Club gallery photo";
 
 
-        lightboxVideo.muted =
-          true;
+          lightboxImage.onload =
+            () => {
+
+              lightboxImage.style.opacity =
+                "1";
+
+            };
 
 
-        lightboxVideo.load();
+          lightboxImage.onerror =
+            () => {
 
+              console.error(
+                "Lightbox failed:",
+                photo.src
+              );
 
-        lightboxVideo.play()
-          .catch(() => {});
+              lightboxImage.style.opacity =
+                "1";
 
-      }
+            };
 
-
-
-      /* IMAGE */
-
-      else {
-
-        lightboxVideo.style.display =
-          "none";
-
-
-        lightboxVideo.removeAttribute(
-          "src"
-        );
-
-
-        lightboxImage.style.display =
-          "block";
-
-
-        lightboxImage.style.opacity =
-          "0";
-
-
-        lightboxImage.src =
-          photo.src;
-
-
-        lightboxImage.alt =
-          "AKASA Sports Club gallery photo";
-
-
-        lightboxImage.onload =
-          () => {
-
-            lightboxImage.style.opacity =
-              "1";
-
-          };
-
-
-        lightboxImage.onerror =
-          () => {
-
-            lightboxImage.style.opacity =
-              "1";
-
-          };
-
-      }
+        },
+        100
+      );
 
 
       lightboxCurrent.textContent =
         currentIndex + 1;
 
-
-      lightboxTotal.textContent =
-        allPhotos.length;
-
     }
 
 
-
-    /* ============================================================
+    /* =========================
        PREVIOUS
-    ============================================================ */
+    ========================= */
 
     function previousPhoto() {
-
-      if (!allPhotos.length) {
-        return;
-      }
-
 
       currentIndex =
         (
@@ -2169,17 +1876,11 @@
     }
 
 
-
-    /* ============================================================
+    /* =========================
        NEXT
-    ============================================================ */
+    ========================= */
 
     function nextPhoto() {
-
-      if (!allPhotos.length) {
-        return;
-      }
-
 
       currentIndex =
         (
@@ -2194,10 +1895,9 @@
     }
 
 
-
-    /* ============================================================
+    /* =========================
        BUTTONS
-    ============================================================ */
+    ========================= */
 
     document
       .getElementById(
@@ -2229,10 +1929,9 @@
       );
 
 
-
-    /* ============================================================
+    /* =========================
        CLICK OUTSIDE
-    ============================================================ */
+    ========================= */
 
     lightbox.addEventListener(
       "click",
@@ -2251,10 +1950,9 @@
     );
 
 
-
-    /* ============================================================
+    /* =========================
        KEYBOARD
-    ============================================================ */
+    ========================= */
 
     document.addEventListener(
       "keydown",
@@ -2303,16 +2001,7 @@
       }
     );
 
-
-
-    /* ============================================================
-       START GALLERY
-    ============================================================ */
-
-    loadGalleryFiles();
-
   </script>
-
 
 </body>
 

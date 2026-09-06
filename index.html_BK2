@@ -632,145 +632,6 @@
       gap: 0.4rem;
     }
     .gallery-card:hover .gallery-hint-pill { opacity: 1; transform: translateY(0); }
-
-    /* ─────────────────────────────────────────
-   FIXED PHOTO MOSAIC
-   ───────────────────────────────────────── */
-
-.collage-grid {
-  width: 100%;
-  height: 520px;              /* DEFAULT COLLAGE SIZE */
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-  overflow: hidden;
-  border: none;
-  background: transparent;
-}
-
-/* Each automatically generated row */
-.collage-row {
-  display: flex;
-  width: 100%;
-  flex: 1;
-  min-height: 0;
-  gap: 3px;
-  overflow: hidden;
-}
-
-/* Individual photo */
-.collage-item {
-  position: relative;
-  min-width: 0;
-  min-height: 0;
-  overflow: hidden;
-
-  border: none !important;
-  border-radius: 0 !important;
-  background: transparent;
-
-  flex: 1;
-  cursor: pointer;
-}
-
-/* Image */
-.collage-item img {
-  width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: cover;
-  transition: transform 0.45s ease;
-}
-
-.collage-item:hover img {
-  transform: scale(1.08);
-}
-
-/* Hover */
-.collage-item .gallery-hover-hint {
-  position: absolute;
-  inset: 0;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  background: rgba(0,0,0,0);
-  transition: background 0.25s ease;
-}
-
-.collage-item:hover .gallery-hover-hint {
-  background: rgba(0,0,0,0.25);
-}
-
-.collage-item .gallery-hint-pill {
-  opacity: 0;
-  transform: translateY(8px);
-
-  padding: 8px 14px;
-  border-radius: 999px;
-
-  background: rgba(255,255,255,0.95);
-  color: #222;
-
-  font-size: 0.72rem;
-  font-weight: 700;
-
-  transition: all 0.25s ease;
-}
-
-.collage-item:hover .gallery-hint-pill {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-
-/* ─────────────────────────────────────────
-   TABLET
-   ───────────────────────────────────────── */
-
-@media (max-width: 991px) {
-
-  .collage-grid {
-    height: 440px;
-  }
-
-}
-
-
-/* ─────────────────────────────────────────
-   MOBILE
-   ───────────────────────────────────────── */
-
-@media (max-width: 575px) {
-
-  .collage-grid {
-    height: 320px;
-    gap: 2px;
-  }
-
-  .collage-row {
-    gap: 2px;
-  }
-
-}
-    .collage-item .gallery-hover-hint {
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0);
-      transition: background 0.3s;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .collage-item:hover .gallery-hover-hint { background: rgba(0,0,0,0.22); }
-    .collage-item .gallery-hint-pill {
-      opacity: 0;
-      transform: translateY(8px);
-      transition: all 0.3s;
-    }
-    .collage-item:hover .gallery-hint-pill { opacity: 1; transform: translateY(0); }
-
     .gallery-body {
       padding: 1.1rem 1.3rem 0.9rem;
     }
@@ -1128,14 +989,13 @@
     [data-theme="dark"] .activity-card,
     [data-theme="dark"] .member-card,
     [data-theme="dark"] .gallery-card,
-    [data-theme="dark"] .collage-item,
     [data-theme="dark"] .event-card {
       background: #1e1e1e;
       border-color: rgba(255,255,255,0.07);
     }
     [data-theme="dark"] .hero-stat { border-right-color: rgba(255,255,255,0.08); }
     [data-theme="dark"] .activity-day { background: #2a2a2a; }
-    [data-theme="dark"] .about-highlight { background: rgba(26,108,255,0.1); color: var(--ink); }
+    [data-theme="dark"] .about-highlight { background: rgba(26,108,255,0.1); }
     [data-theme="dark"] .floating-pill { background: #1e1e1e; color: var(--ink); }
     [data-theme="dark"] .gallery-hint-pill,
     [data-theme="dark"] .open-hint-pill { background: rgba(30,30,30,0.95); color: #f0ede8; }
@@ -1168,7 +1028,7 @@
     /* fact boxes (about section) already use gradient – just keep border subtle */
     [data-theme="dark"] .fact-box { box-shadow: 0 4px 20px rgba(0,0,0,0.4); }
 
-    body, .navbar, .activity-card, .gallery-card, .collage-item, .event-card, .member-card,
+    body, .navbar, .activity-card, .gallery-card, .event-card, .member-card,
     .hero-badge, .hero-stats, .floating-pill, #about, #events, #committee, footer {
       transition: background-color 0.35s ease, color 0.25s ease, border-color 0.35s ease;
     }
@@ -1229,7 +1089,7 @@
         <li class="nav-item"><a class="nav-link" href="#activities">Activities</a></li>
         <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
         <li class="nav-item"><a class="nav-link" href="#committee">Committee</a></li>
-        <li class="nav-item ms-lg-2"><a class="nav-link btn-nav" href="#join" onclick="openRegisterModal(event)">Join Us</a></li>
+        <li class="nav-item ms-lg-2"><a class="nav-link btn-nav" href="#join">Join Us</a></li>
 
       </ul>
     </div>
@@ -1336,8 +1196,8 @@
           AKASA Sport Club was founded in 2018 with a single mission — to create an inclusive, high-performance environment where every athlete can thrive. From beginners to elite competitors, we welcome everyone who shares a love for sport.
         </p>
         <div class="about-highlight mt-4">
-          "Apa-apa aku depan, korang rilek je."
-          <div style="font-size:0.72rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--blue);margin-top:0.8rem;">— President Luqman, AKASA Sport Club</div>
+          "Sport is the great equalizer. At AKASA, we don't just train bodies — we build character, resilience, and brotherhood."
+          <div style="font-size:0.72rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--blue);margin-top:0.8rem;">— Founder, AKASA Sport Club</div>
         </div>
       </div>
       <div class="col-lg-5 offset-lg-1 reveal">
@@ -1554,44 +1414,6 @@
   </div>
 </section>
 
-<!-- Register Modal -->
-<div id="registerModal" class="suggest-modal" style="display: none;">
-  <div class="suggest-modal-content">
-    <button class="suggest-modal-close" onclick="closeRegisterModal()">
-      <i class="bi bi-x-lg"></i>
-    </button>
-    <h3>Join AKASA Sport Club</h3>
-    <p>Become part of a growing community of passionate athletes. Here's everything you need to know before signing up.</p>
-
-    <div class="form-group">
-      <label>Description</label>
-      <p style="color:var(--muted);font-size:0.9rem;line-height:1.7;">Membership gives you access to all AKASA activities and training sessions, invitations to club events and tournaments, and a place in a supportive sporting community for members of all skill levels.</p>
-    </div>
-
-    <div class="form-group">
-      <label>Benefits</label>
-      <ul style="color:var(--muted);font-size:0.9rem;line-height:1.9;padding-left:1.2rem;margin:0;">
-        <li>Free access to all activities and training sessions</li>
-        <li>Priority registration for events and tournaments</li>
-        <li>Discounted fees for select competitions and staycations</li>
-        <li>Official AKASA member kit/jersey</li>
-        <li>Access to a supportive, all-level sporting community</li>
-      </ul>
-    </div>
-
-    <div class="form-group">
-      <label>Fees</label>
-      <ul style="color:var(--muted);font-size:0.9rem;line-height:1.9;padding-left:1.2rem;margin:0;">
-        <li>RM10 / year</li>
-        <li>RM100 / lifetime membership</li>
-      </ul>
-    </div>
-
-    <!-- TODO: replace with the actual Google Form registration link -->
-    <a href="https://forms.gle/REPLACE_WITH_YOUR_FORM_LINK" target="_blank" rel="noopener" class="btn-primary-custom w-100 text-center mt-2">Register via Google Form</a>
-  </div>
-</div>
-
 <!-- Suggest Activity Modal -->
 <div id="suggestModal" class="suggest-modal" style="display: none;">
   <div class="suggest-modal-content">
@@ -1629,9 +1451,9 @@
     <!-- Header -->
     <div class="row align-items-end mb-5">
       <div class="col-lg-7 reveal">
-        <div class="sec-label c-purple">Photo Gallery</div>
+        <div class="sec-label c-purple">Photo Albums</div>
         <h2 class="sec-title">Moments in <span class="c-blue">Focus</span></h2>
-        <p class="sec-desc mt-3">A live snapshot straight from our gallery — real photos from recent sessions, events and hangouts.</p>
+        <p class="sec-desc mt-3">A snapshot of the action, the celebration, and the community. Browse our latest albums from recent events.</p>
       </div>
       <div class="col-lg-4 offset-lg-1 reveal d-flex align-items-end justify-content-lg-end mt-3 mt-lg-0">
         <a href="gallery.html" class="btn-primary-custom d-inline-flex align-items-center gap-2">
@@ -1640,15 +1462,118 @@
       </div>
     </div>
 
-    <!-- Populated dynamically from assets/gallery/gallery-data.js as a random collage -->
-    <div class="collage-grid" id="gallerySummaryGrid"></div>
+    <!-- Row 1: 3 uniform cards -->
+    <div class="row g-4 mb-4">
+
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="gallery-card" onclick="window.location='gallery.html'">
+          <div class="gallery-img-wrap">
+            <img src="https://images.unsplash.com/photo-1529900748604-07564a03e7a6?w=700&auto=format&fit=crop" alt="Futsal Tournament"/>
+            <span class="gallery-cat-badge" style="background:var(--blue)">Futsal</span>
+            <div class="gallery-photo-count"><i class="bi bi-images"></i> 7 photos</div>
+            <div class="gallery-hover-hint"><div class="gallery-hint-pill"><i class="bi bi-eye"></i> View Album</div></div>
+          </div>
+          <div class="gallery-body">
+            <div class="gallery-date"><i class="bi bi-calendar3" style="color:var(--blue)"></i> 15 March 2025</div>
+            <div class="gallery-title">AKASA Cup Futsal Tournament 2025</div>
+            <p class="gallery-desc">16 teams, 3 divisions — from opening ceremony to the golden goal in the grand final.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="gallery-card" onclick="window.location='gallery.html'">
+          <div class="gallery-img-wrap">
+            <img src="https://images.unsplash.com/photo-1596491517071-e6e8f9da0680?w=700&auto=format&fit=crop" alt="Badminton Championship"/>
+            <span class="gallery-cat-badge" style="background:var(--orange)">Badminton</span>
+            <div class="gallery-photo-count"><i class="bi bi-images"></i> 6 photos</div>
+            <div class="gallery-hover-hint"><div class="gallery-hint-pill"><i class="bi bi-eye"></i> View Album</div></div>
+          </div>
+          <div class="gallery-body">
+            <div class="gallery-date"><i class="bi bi-calendar3" style="color:var(--orange)"></i> 23 March 2025</div>
+            <div class="gallery-title">Badminton Open Championship 2025</div>
+            <p class="gallery-desc">64 players, 4 categories — some of the most intense smashes ever seen at Dewan Badminton Sri Seremban.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="gallery-card" onclick="window.location='gallery.html'">
+          <div class="gallery-img-wrap">
+            <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=700&auto=format&fit=crop" alt="5K Fun Run"/>
+            <span class="gallery-cat-badge" style="background:var(--green)">Running</span>
+            <div class="gallery-photo-count"><i class="bi bi-images"></i> 6 photos</div>
+            <div class="gallery-hover-hint"><div class="gallery-hint-pill"><i class="bi bi-eye"></i> View Album</div></div>
+          </div>
+          <div class="gallery-body">
+            <div class="gallery-date"><i class="bi bi-calendar3" style="color:var(--green)"></i> 5 April 2025</div>
+            <div class="gallery-title">5K Fun Run &amp; Charity 2025</div>
+            <p class="gallery-desc">180+ runners hit the trails at dawn for a cause — every finish-line moment captured.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Row 2: 3 uniform cards -->
+    <div class="row g-4">
+
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="gallery-card" onclick="window.location='gallery.html'">
+          <div class="gallery-img-wrap">
+            <img src="https://images.unsplash.com/photo-1519315901367-f34ff9154487?w=700&auto=format&fit=crop" alt="Swimming Gala"/>
+            <span class="gallery-cat-badge" style="background:var(--teal)">Swimming</span>
+            <div class="gallery-photo-count"><i class="bi bi-images"></i> 5 photos</div>
+            <div class="gallery-hover-hint"><div class="gallery-hint-pill"><i class="bi bi-eye"></i> View Album</div></div>
+          </div>
+          <div class="gallery-body">
+            <div class="gallery-date"><i class="bi bi-calendar3" style="color:var(--teal)"></i> 27 April 2025</div>
+            <div class="gallery-title">Inter-Club Swimming Gala 2025</div>
+            <p class="gallery-desc">80 swimmers across age categories — freestyle, relay and backstroke events at Olympic Pool MPPD.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="gallery-card" onclick="window.location='gallery.html'">
+          <div class="gallery-img-wrap">
+            <img src="https://images.unsplash.com/photo-1600679472829-3044539ce405?w=700&auto=format&fit=crop" alt="Night Futsal Final"/>
+            <span class="gallery-cat-badge" style="background:var(--blue)">Futsal</span>
+            <div class="gallery-photo-count"><i class="bi bi-images"></i> 6 photos</div>
+            <div class="gallery-hover-hint"><div class="gallery-hint-pill"><i class="bi bi-eye"></i> View Album</div></div>
+          </div>
+          <div class="gallery-body">
+            <div class="gallery-date"><i class="bi bi-calendar3" style="color:var(--blue)"></i> 14 December 2024</div>
+            <div class="gallery-title">Night Futsal League S1 — Grand Final</div>
+            <p class="gallery-desc">Under the floodlights, AKASA Wolves FC lifted the inaugural Night League trophy in a dramatic final.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="gallery-card" onclick="window.location='gallery.html'">
+          <div class="gallery-img-wrap">
+            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=700&auto=format&fit=crop" alt="Year-End Awards"/>
+            <span class="gallery-cat-badge" style="background:var(--pink)">Community</span>
+            <div class="gallery-photo-count"><i class="bi bi-images"></i> 6 photos</div>
+            <div class="gallery-hover-hint"><div class="gallery-hint-pill"><i class="bi bi-eye"></i> View Album</div></div>
+          </div>
+          <div class="gallery-body">
+            <div class="gallery-date"><i class="bi bi-calendar3" style="color:var(--pink)"></i> 20 December 2024</div>
+            <div class="gallery-title">Year-End Club Dinner &amp; Awards 2024</div>
+            <p class="gallery-desc">200+ members gathered to celebrate an outstanding year with special awards and a night to remember.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
 
     <!-- CTA -->
     <div class="text-center mt-5 reveal">
       <a href="gallery.html" class="btn-primary-custom d-inline-flex align-items-center gap-2" style="font-size:0.88rem;padding:1rem 2.8rem;">
-        <i class="bi bi-grid-3x3-gap-fill"></i> Browse Full Gallery
+        <i class="bi bi-grid-3x3-gap-fill"></i> Browse All Albums
       </a>
-      <p id="gallerySummaryStats" style="font-size:0.75rem;color:var(--muted);margin-top:0.9rem;"></p>
+      <p style="font-size:0.75rem;color:var(--muted);margin-top:0.9rem;">8 albums · 48 photos · 2023 – 2025</p>
     </div>
 
   </div>
@@ -1878,7 +1803,7 @@
           <div class="sec-label">Ready to Start?</div>
           <h2 class="sec-title">Become Part<br>Of AKASA</h2>
           <p class="mt-3 mb-0">Open registration is now available. Join a growing community of passionate athletes and take your game to the next level.</p>
-          <a href="#" class="btn-white mt-4" onclick="openRegisterModal(event)">Register Now</a>
+          <a href="mailto:join@AKASAsportclub.com" class="btn-white mt-4">Register Now</a>
         </div>
         <div class="col-lg-4 offset-lg-1" style="position:relative;z-index:1">
           <div class="contact-item"><div class="contact-icon"><i class="bi bi-envelope-fill"></i></div> join@AKASAsportclub.com</div>
@@ -1935,7 +1860,6 @@
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<script src="assets/gallery/gallery-data.js"></script>
 <script>
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((e, i) => {
@@ -2016,20 +1940,6 @@
     }
   });
 
-  // ── REGISTER MODAL ────────────────────────────────────────────────────────
-  function openRegisterModal(event) {
-    if (event) event.preventDefault();
-    document.getElementById('registerModal').style.display = 'flex';
-  }
-  function closeRegisterModal() {
-    document.getElementById('registerModal').style.display = 'none';
-  }
-  document.getElementById('registerModal').addEventListener('click', function(event) {
-    if (event.target === this) {
-      this.style.display = 'none';
-    }
-  });
-
   // ── THEME TOGGLE ──────────────────────────────────────────────────────────
   const toggleBtn = document.getElementById('themeToggle');
   const themeIcon = document.getElementById('themeIcon');
@@ -2048,241 +1958,6 @@
   toggleBtn.addEventListener('click', () => {
     applyTheme(root.getAttribute('data-theme') !== 'dark');
   });
-
-  // ── GALLERY SUMMARY (pulls real photos from assets/gallery as a collage) ───
-  // ─────────────────────────────────────────
-// GALLERY SUMMARY — FIXED MOSAIC
-// ALL PHOTOS FIT INSIDE FIXED BOX
-// ─────────────────────────────────────────
-
-(function () {
-
-  const grid = document.getElementById('gallerySummaryGrid');
-  const statsEl = document.getElementById('gallerySummaryStats');
-
-  const files = window.GALLERY_FILES;
-
-  if (!grid || !Array.isArray(files)) return;
-
-  const VIDEO_EXT = /\.(mp4|mov|webm)$/i;
-
-  // Get ALL photos
-  const photos = files
-    .filter(f => !VIDEO_EXT.test(f.file))
-    .slice();
-
-
-  // ───────────────────────────────────────
-  // RANDOM SHUFFLE
-  // ───────────────────────────────────────
-
-  function shuffle(array) {
-
-    const arr = [...array];
-
-    for (let i = arr.length - 1; i > 0; i--) {
-
-      const j = Math.floor(Math.random() * (i + 1));
-
-      [arr[i], arr[j]] = [arr[j], arr[i]];
-
-    }
-
-    return arr;
-  }
-
-
-  const shuffledPhotos = shuffle(photos);
-
-
-  // ───────────────────────────────────────
-  // DETERMINE NUMBER OF ROWS
-  // ───────────────────────────────────────
-
-  function getRowCount(count) {
-
-    if (count <= 8) return 2;
-    if (count <= 16) return 3;
-    if (count <= 30) return 4;
-    if (count <= 50) return 5;
-    if (count <= 75) return 6;
-    if (count <= 100) return 7;
-
-    return Math.ceil(count / 14);
-
-  }
-
-
-  // ───────────────────────────────────────
-  // SPLIT PHOTOS INTO RANDOM ROWS
-  // ───────────────────────────────────────
-
-  function createRows(items, rowCount) {
-
-    const rows = [];
-
-    let remaining = items.length;
-
-    for (let i = 0; i < rowCount; i++) {
-
-      const rowsLeft = rowCount - i;
-
-      let count;
-
-      if (i === rowCount - 1) {
-
-        count = remaining;
-
-      } else {
-
-        // Random number of images in this row
-        const average = remaining / rowsLeft;
-
-        const min = Math.max(2, Math.floor(average * 0.65));
-        const max = Math.max(min, Math.ceil(average * 1.35));
-
-        count =
-          Math.floor(
-            Math.random() * (max - min + 1)
-          ) + min;
-
-        // Make sure enough images remain
-        count = Math.min(
-          count,
-          remaining - (rowsLeft - 1)
-        );
-
-      }
-
-      rows.push(
-        items.splice(0, count)
-      );
-
-      remaining -= count;
-
-    }
-
-    return rows;
-
-  }
-
-
-  // ───────────────────────────────────────
-  // RANDOM WIDTHS
-  // ───────────────────────────────────────
-
-  function randomWeights(count) {
-
-    const weights = [];
-
-    for (let i = 0; i < count; i++) {
-
-      // Random size between small and large
-      weights.push(
-        0.65 + Math.random() * 1.4
-      );
-
-    }
-
-    return weights;
-
-  }
-
-
-  // ───────────────────────────────────────
-  // CREATE MOSAIC
-  // ───────────────────────────────────────
-
-  const rowCount =
-    getRowCount(shuffledPhotos.length);
-
-  const photoRows =
-    createRows(
-      [...shuffledPhotos],
-      rowCount
-    );
-
-
-  grid.innerHTML = photoRows.map((row, rowIndex) => {
-
-    const weights =
-      randomWeights(row.length);
-
-    const totalWeight =
-      weights.reduce(
-        (sum, value) => sum + value,
-        0
-      );
-
-
-    return `
-      <div class="collage-row">
-
-        ${row.map((p, index) => {
-
-          const width =
-            (weights[index] / totalWeight) * 100;
-
-          return `
-            <div
-              class="collage-item"
-              style="flex:${weights[index]} 1 0;"
-              onclick="window.location='gallery.html'"
-            >
-
-              <img
-                src="assets/gallery/${p.file}"
-                alt="AKASA gallery photo"
-                loading="${rowIndex < 2 ? 'eager' : 'lazy'}"
-              >
-
-              <div class="gallery-hover-hint">
-
-                <div class="gallery-hint-pill">
-                  <i class="bi bi-images"></i>
-                  View Gallery
-                </div>
-
-              </div>
-
-            </div>
-          `;
-
-        }).join('')}
-
-      </div>
-    `;
-
-  }).join('');
-
-
-  // ───────────────────────────────────────
-  // GALLERY STATISTICS
-  // ───────────────────────────────────────
-
-  const totalPhotos = photos.length;
-
-  const totalVideos =
-    files.filter(
-      f => VIDEO_EXT.test(f.file)
-    ).length;
-
-
-  if (statsEl) {
-
-    statsEl.textContent =
-      `${totalPhotos} photo${totalPhotos !== 1 ? 's' : ''}` +
-      (
-        totalVideos
-          ? ` · ${totalVideos} video${totalVideos !== 1 ? 's' : ''}`
-          : ''
-      ) +
-      ' in the gallery';
-
-  }
-
-})();
 </script>
 </body>
 </html>
-

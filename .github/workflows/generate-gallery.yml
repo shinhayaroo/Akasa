@@ -1,0 +1,133 @@
+name: Generate Gallery List
+
+on:
+  push:
+    paths:
+      - "assets/gallery/**"
+
+permissions:
+  contents: write
+
+jobs:
+
+  generate-gallery:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Generate gallery.json
+        run: |
+
+          python - <<'PY'
+
+          import os
+          import json
+
+          folder = "assets/gallery"
+
+          allowed = {
+              ".jpg",
+              ".jpeg",
+              ".png",
+              ".webp",
+              ".gif",
+              ".JPG",
+              ".JPEG",
+              ".PNG",
+              ".WEBP",
+              ".GIF",
+              ".mp4",
+              ".MP4",
+              ".mov",
+              ".MOV",
+              ".webm",
+              ".WEBM"
+          }
+
+          files = []
+
+          for filename in os.listdir(folder):
+
+              filepath = os.path.join(
+                  folder,
+                  filename
+              )
+
+              if not os.path.isfile(filepath):
+                  continue
+
+              ext = os.path.splitext(
+                  filename
+              )[1]
+
+              if ext in allowed:
+                  files.append(filename)
+
+
+          # Sort alphabetically
+          files.sort(
+              key=lambda x: x.lower()
+          )
+
+
+          output = os.path.join(
+              folder,
+              "gallery.json"
+          )
+
+
+          with open(
+              output,
+              "w",
+              encoding="utf-8"
+          ) as f:
+
+              json.dump(
+                  files,
+                  f,
+                  indent=2,
+                  ensure_ascii=False
+              )
+
+
+          print(
+              "Generated gallery.json"
+          )
+
+          print(
+              f"Found {len(files)} media files"
+          )
+
+          for file in files:
+              print(
+                  " -",
+                  file
+              )
+
+          PY
+
+
+      - name: Commit gallery.json
+        run: |
+
+          git config user.name \
+            "github-actions[bot]"
+
+          git config user.email \
+            "41898282+github-actions[bot]@users.noreply.github.com"
+
+
+          git add \
+            assets/gallery/gallery.json
+
+
+          git diff --cached --quiet \
+            || git commit \
+            -m "Update gallery list"
+
+
+          git push
